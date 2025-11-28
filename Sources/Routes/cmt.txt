@@ -1,0 +1,5 @@
+# Khai báo URL endpoint
+Khai báo các API endpoint.
+
+Ví dụ /api/products, /api/users/login.
+router.get('/products', productController.getProducts);

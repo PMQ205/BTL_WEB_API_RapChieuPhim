@@ -1,0 +1,8 @@
+ # Xác thực, log, xử lý lỗi
+ Xử lý trước khi vào controller:
+
+Kiểm tra token
+
+Logging
+
+Xử lý lỗi

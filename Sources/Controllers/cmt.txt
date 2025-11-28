@@ -1,0 +1,7 @@
+# Xử lý request/response
+Nhận request từ client.
+
+Gọi service xử lý.
+
+Trả response JSON.
+vd exports.getProducts = (req, res) => { ... }

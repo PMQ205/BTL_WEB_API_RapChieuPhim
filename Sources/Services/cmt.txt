@@ -1,0 +1,4 @@
+# Xử lý logic chính
+Chứa business logic (xử lý tính toán, kiểm tra…)
+
+Controller chỉ gọi tới service.

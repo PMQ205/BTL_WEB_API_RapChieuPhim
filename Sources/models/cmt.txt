@@ -1,0 +1,8 @@
+ # Model dữ liệu (ORM như Sequelize, EF, etc.)
+ Khai báo bảng trong MySQL.
+
+Ví dụ model Product:
+{
+   id, name, price, categoryId
+}
+
