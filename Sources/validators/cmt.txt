@@ -1,0 +1,52 @@
+validators/ → Kiểm tra dữ liệu đầu vào
+Kiểm tra email đúng định dạng
+
+Kiểm tra password dài ≥ 6 ký tự
+
+Kiểm tra số lượng > 0
+
+Kiểm tra trường nào bắt buộc phải có
+
+Thường sử dụng các thư viện như: Joi, Yup.Zod
+
+Dùng để validate (kiểm tra hợp lệ) dữ liệu client gửi lên API.
+
+vd 
+###
+import { z } from "zod";
+//Đây là schema (mô hình) mô tả cấu trúc dữ liệu mà bạn mong muốn nhận được.
+export const createHangHoaSchema = z.object({ 
+    TenHang: z.coerce.string().min(1), 
+    DonGia: z.coerce.number(), 
+    SoLuong: z.coerce.number(), 
+    MaLoai: z.coerce.number() 
+    }
+);
+//Đây là hàm thực thi việc kiểm tra , dùng trong controller
+export const validateCreateGoods = (data) => { 
+    return createHangHoaSchema.parse(data); 
+    };
+
+/// parse sẽ kiểm tra xem data có đúng cấu trúc của createHangHoaSchema không , nếu sai sẽ throw error
+///z.coerce trong Zod là tính năng dùng để tự động chuyển đổi kiểu dữ liệu (coercion) trước khi validate.
+vd DonGia: z.coerce.number()
+Nó sẽ tự chuyển:
+        "200000" → 200000
+
+        "5" → 5
+
+        "3.14" → 3.14
+
+        "0012" → 12
+###
+schema thường được gọi dùng khi tái sử dụng hoặc bổ sung thêm 
+vd tạo schema update có luật tương tự create 
+
+    export const updateHangHoaSchema = createHangHoaSchema.partial();
+
+vd khi mở rộng thêm cho các schema khác
+
+    export const adminCreateHangHoaSchema = createHangHoaSchema.extend({
+    GiaNhap: z.coerce.number().positive()
+    });
+và nhiều trường hợp khác hẹ hẹ

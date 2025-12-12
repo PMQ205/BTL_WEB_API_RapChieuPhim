@@ -1,4 +1,61 @@
-# Xử lý logic chính
-Chứa business logic (xử lý tính toán, kiểm tra…)
+Service = nơi xử lý logic, tính toán, kiểm tra, phối hợp dữ liệu
 
 Controller chỉ gọi tới service.
+
+1) Kiểm tra tồn tại trước khi thao tác
+
+(Controller không được làm chuyện này)
+
+const item = await hangHoaRepository.findById(id);
+if (!item) {
+  throw new Error("Không tìm thấy hàng hóa");
+}
+
+
+Dùng khi update, delete, getById
+
+2) Kiểm tra logic nghiệp vụ
+
+(Validator không làm được)
+
+Ví dụ: Số lượng không được âm.
+
+if (dto.SoLuong < 0) {
+  throw new Error("Số lượng không hợp lệ");
+}
+
+Validator chỉ check kiểu dữ liệu,
+service check logic
+
+3) Kiểm tra trùng tên (unique business rule)
+const existing = await hangHoaRepository.findByName(dto.TenHang);
+if (existing) {
+  throw new Error("Tên hàng này đã tồn tại");
+}
+
+Zod validator không làm được
+
+4) Tính toán trước khi lưu
+
+Ví dụ: tính giá sau thuế.
+dto.GiaSauThue = dto.DonGia * 1.1;
+
+5) Xử lý nhiều bảng cùng lúc
+
+Ví dụ:
+Khi tạo hàng hóa → tự động thêm lịch sử nhập kho.
+
+const newId = await hangHoaRepository.create(dto);
+await lichSuNhapRepository.add({
+  MaHang: newId,
+  SoLuong: dto.SoLuong,
+});
+6) Áp dụng thêm điều kiện đặc biệt
+
+Ví dụ:
+Không cho xóa hàng hóa nếu còn tồn kho.
+
+const ton = await khoRepository.getTon(id);
+if (ton > 0) {
+  throw new Error("Không thể xóa vì còn tồn kho");
+}

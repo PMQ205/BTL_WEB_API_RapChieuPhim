@@ -1,3 +1,0 @@
-Migration để tạo bảng
-
-Seed để tạo dữ liệu mẫu
