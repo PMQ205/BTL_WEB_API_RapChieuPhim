@@ -1,5 +1,8 @@
 npm install express mysql2 cors // install to run sql
 npm install mysql2
+npm install compression
+npm install helmet
+npm install zod
 
 // run by node server.js
 

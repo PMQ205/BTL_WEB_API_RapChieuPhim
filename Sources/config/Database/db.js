@@ -1,14 +1,14 @@
 import mysql from "mysql2/promise";
 
 import "dotenv/config";
-import { logger } from "./logger.js";
+import { logger } from "../logger.js";
 
 const connectionOptions = process.env.MYSQL_URI ?? {
   host: process.env.MYSQL_HOST || "localhost",
   port: process.env.MYSQL_PORT || 3306,
   user: process.env.MYSQL_USERNAME || "root",
   password: process.env.MYSQL_PASSWORD || "Quan175204@",
-  database: process.env.MYSQL_DBNAME || "QLBanHang",
+  database: process.env.MYSQL_DBNAME || "RAPCHIEUPHIM",
 };
 
 export const pool = mysql.createPool(connectionOptions);

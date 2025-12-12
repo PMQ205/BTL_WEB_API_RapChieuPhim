@@ -1,0 +1,38 @@
+### Lấy tất cả phim
+GET http://localhost:3000/films
+Accept: application/json
+
+
+### Lấy phim theo ID
+GET http://localhost:3000/films/1
+Accept: application/json
+
+
+### Thêm phim mới
+POST http://localhost:3000/films
+Content-Type: application/json
+
+{
+  "TenPhim": "Avengers: Endgame",
+  "TheLoai": "Hành động, Viễn tưởng",
+  "TomTat": "Trận chiến cuối cùng với Thanos.",
+  "Trailer": "https://youtube.com/trailer",
+  "ThoiLuong": 180,
+  "DaoDien": "Anthony Russo",
+  "DienVien": "Chris Evans, Robert Downey Jr"
+}
+
+
+### Cập nhật phim theo ID
+PUT http://localhost:3000/films/1
+Content-Type: application/json
+
+{
+  "TenPhim": "Avengers: Endgame - Updated",
+  "ThoiLuong": 185
+}
+
+
+### Xóa phim theo ID
+DELETE http://localhost:3000/films/1
+Accept: application/json
