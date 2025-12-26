@@ -6,7 +6,7 @@ import {
 const film_Router = Router();
 
 // GET /films
-film_Router.get("/", films_Controller.getAllFilms_Controller);
+film_Router.get("/films", films_Controller.getAllFilms_Controller);
 
 // GET /films/:id
 film_Router.get("/:id", films_Controller.getFilmsByID_Controller);
@@ -19,5 +19,9 @@ film_Router.put("/:id", films_Controller.updateFilm_Controller);
 
 // DELETE /films/:id
 film_Router.delete("/:id", films_Controller.deleteFilm_Controller);
+//
+//-----------------THE LOAI PHIM-------------------------
+//
+
 
 export default film_Router;

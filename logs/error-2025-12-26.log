@@ -1,0 +1,149 @@
+2025-12-26 10:01:59 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:01:59 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:01:59 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:03:17 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:03:17 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:03:17 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:00 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:00 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:00 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:01 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:01 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:01 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:11:47 [error] : ZodError: [
+  {
+    "code": "unrecognized_keys",
+    "keys": [
+      "MaPhim"
+    ],
+    "path": [],
+    "message": "Unrecognized key: \"MaPhim\""
+  }
+]
+    at createFilm_Validator (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/validators/Film/create_Film_validator.js:53:33)
+    at createFilm_DTO.fromRequest (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/dtos/Film/create_Film.dto.js:28:23)
+    at addFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:40:38)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at processParams (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:582:12)
+2025-12-26 10:15:54 [error] : ZodError: [
+  {
+    "expected": "number",
+    "code": "invalid_type",
+    "received": "NaN",
+    "path": [
+      "MaPhim"
+    ],
+    "message": "Invalid input: expected number, received NaN"
+  }
+]
+    at updateFilm_Varlidator (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/validators/Film/update_Film_validator.js:62:25)
+    at updateFilmDTO.fromRequest (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/dtos/Film/update_Film.dto.js:31:23)
+    at updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:58:37)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at param (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:600:14)
+2025-12-26 10:16:14 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:16:14 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:16:14 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:17:29 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:17:29 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:17:29 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)

@@ -13,14 +13,15 @@ export const films_Repo = {
             throw error;
         }   
     },
-    getFilmsByID_Repo: async (id) => {
+
+    getFilmsByID_Repo: async (MaPhim) => {
         try {
             const db = await pool;
-            const [rows] = await db.query("SELECT * FROM phim WHERE id = ?", [id]);
-            logger.info(`Lấy film với ID: ${id}`);
+            const [rows] = await db.query("SELECT * FROM phim WHERE MaPhim = ?", [MaPhim]);
+            logger.info(`Lấy film với MaPhim: ${MaPhim}`);
             return rows;
         } catch (error) {
-            logger.error(`Lỗi lấy film với ID: ${id}`, error);
+            logger.error(`Lỗi lấy film với ID: ${MaPhim}`, error);
             throw error;
         }
     },
@@ -35,25 +36,25 @@ export const films_Repo = {
             throw error;
         }
     },
-    updateFilm_Repo: async (id, filmData) => {
+    updateFilm_Repo: async (MaPhim, filmData) => {
         try {
             const db = await pool;
-            const [result] = await db.query("UPDATE phim SET ? WHERE id = ?", [filmData, id]);
-            logger.info(`Cập nhật film với ID: ${id}`);
+            const [result] = await db.query("UPDATE phim SET ? WHERE MaPhim = ?", [filmData, MaPhim]);
+            logger.info(`Cập nhật film với ID: ${MaPhim}`);
             return result.affectedRows;
         } catch (error) {
-            logger.error(`Lỗi cập nhật film với ID: ${id}`, error);
+            logger.error(`Lỗi cập nhật film với ID: ${MaPhim}`, error);
             throw error;
         }   
     },
-    deleteFilm_Repo: async (id) => {
+    deleteFilm_Repo: async (MaPhim) => {
         try {
             const db = await pool;
-            const [result] = await db.query("DELETE FROM phim WHERE id = ?", [id]);
-            logger.info(`Xóa film với ID: ${id}`);
+            const [result] = await db.query("DELETE FROM phim WHERE MaPhim = ?", [MaPhim]);
+            logger.info(`Xóa film với ID: ${MaPhim}`);
             return result.affectedRows;
         } catch (error) {
-            logger.error(`Lỗi xóa film với ID: ${id}`, error);
+            logger.error(`Lỗi xóa film với ID: ${MaPhim}`, error);
             throw error;
         }
     },

@@ -1,0 +1,44 @@
+2025-12-26 10:39:30 [error] : TypeError: app.use() requires a middleware function
+    at Function.use (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:213:11)
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/server.js:27:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+2025-12-26 10:39:31 [error] : TypeError: app.use() requires a middleware function
+    at Function.use (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:213:11)
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/server.js:27:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+2025-12-26 10:39:36 [error] : TypeError: app.use() requires a middleware function
+    at Function.use (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:213:11)
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/server.js:27:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+2025-12-26 10:39:39 [error] : TypeError: app.use() requires a middleware function
+    at Function.use (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:213:11)
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/server.js:27:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+2025-12-26 10:39:43 [error] : ReferenceError: User is not defined
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/server.js:27:19
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+2025-12-26 10:39:45 [error] : ReferenceError: User_ is not defined
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/server.js:27:19
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+2025-12-26 11:05:12 [error] : ReferenceError: user_Controller is not defined
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Routes/User_Router.js:6:22
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+2025-12-26 11:05:19 [error] : ReferenceError: user_Controller is not defined
+    at file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Routes/User_Router.js:8:23
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:547:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)

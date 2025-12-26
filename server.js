@@ -7,6 +7,7 @@ import compression from 'compression';
 import './Sources/config/Database/db.js';
 import { logger } from './Sources/config/logger.js';
 import Film_Router from './Sources/Routes/Film_Router.js';
+import user_Router from './Sources/Routes/User_Router.js';
 
 
 dotenv.config();
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 
 app.use('/films', Film_Router); 
 
+app.use('/users', user_Router);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });

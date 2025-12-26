@@ -1,0 +1,425 @@
+2025-12-26 09:32:38 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:32:38 [info] : MySQL connected successfully
+2025-12-26 09:44:25 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:44:25 [info] : MySQL connected successfully
+2025-12-26 09:44:37 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:44:37 [info] : MySQL connected successfully
+2025-12-26 09:44:48 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:44:48 [info] : MySQL connected successfully
+2025-12-26 09:45:02 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:45:02 [info] : MySQL connected successfully
+2025-12-26 09:51:56 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:51:56 [info] : MySQL connected successfully
+2025-12-26 09:52:00 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:52:00 [info] : MySQL connected successfully
+2025-12-26 09:52:25 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:52:25 [info] : MySQL connected successfully
+2025-12-26 09:52:46 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:52:46 [info] : MySQL connected successfully
+2025-12-26 09:55:49 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:55:49 [info] : MySQL connected successfully
+2025-12-26 09:55:53 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:55:53 [info] : MySQL connected successfully
+2025-12-26 09:56:17 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:56:17 [info] : MySQL connected successfully
+2025-12-26 09:56:54 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:56:54 [info] : MySQL connected successfully
+2025-12-26 09:56:58 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:56:58 [info] : MySQL connected successfully
+2025-12-26 09:57:09 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:57:09 [info] : MySQL connected successfully
+2025-12-26 09:57:17 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 09:57:17 [info] : MySQL connected successfully
+2025-12-26 10:01:59 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:01:59 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:01:59 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:03:17 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:03:17 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:03:17 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:03:49 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:03:49 [info] : MySQL connected successfully
+2025-12-26 10:03:53 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:03:53 [info] : MySQL connected successfully
+2025-12-26 10:03:56 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:03:56 [info] : MySQL connected successfully
+2025-12-26 10:04:00 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:00 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:00 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:01 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:01 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:01 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:59:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-26 10:04:53 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:04:53 [info] : MySQL connected successfully
+2025-12-26 10:05:00 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:00 [info] : MySQL connected successfully
+2025-12-26 10:05:13 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:13 [info] : MySQL connected successfully
+2025-12-26 10:05:15 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:15 [info] : MySQL connected successfully
+2025-12-26 10:05:16 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:16 [info] : MySQL connected successfully
+2025-12-26 10:05:17 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:17 [info] : MySQL connected successfully
+2025-12-26 10:05:18 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:18 [info] : MySQL connected successfully
+2025-12-26 10:05:23 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:23 [info] : MySQL connected successfully
+2025-12-26 10:05:25 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:25 [info] : MySQL connected successfully
+2025-12-26 10:05:46 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:46 [info] : MySQL connected successfully
+2025-12-26 10:05:50 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:50 [info] : MySQL connected successfully
+2025-12-26 10:05:52 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:52 [info] : MySQL connected successfully
+2025-12-26 10:05:54 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:54 [info] : MySQL connected successfully
+2025-12-26 10:05:56 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:05:56 [info] : MySQL connected successfully
+2025-12-26 10:06:00 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:06:00 [info] : MySQL connected successfully
+2025-12-26 10:06:02 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:06:02 [info] : MySQL connected successfully
+2025-12-26 10:06:11 [info] : Lấy film với MaPhim: 1
+2025-12-26 10:06:11 [info] : Dịch vụ: Lấy film với ID: 1
+2025-12-26 10:06:31 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:06:31 [info] : MySQL connected successfully
+2025-12-26 10:06:33 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:06:33 [info] : MySQL connected successfully
+2025-12-26 10:06:36 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:06:36 [info] : MySQL connected successfully
+2025-12-26 10:06:50 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:06:50 [info] : MySQL connected successfully
+2025-12-26 10:07:14 [info] : Lấy tất cả films
+2025-12-26 10:07:14 [info] : Dịch vụ: Lấy tất cả films
+2025-12-26 10:11:47 [error] : ZodError: [
+  {
+    "code": "unrecognized_keys",
+    "keys": [
+      "MaPhim"
+    ],
+    "path": [],
+    "message": "Unrecognized key: \"MaPhim\""
+  }
+]
+    at createFilm_Validator (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/validators/Film/create_Film_validator.js:53:33)
+    at createFilm_DTO.fromRequest (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/dtos/Film/create_Film.dto.js:28:23)
+    at addFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:40:38)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at processParams (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:582:12)
+2025-12-26 10:15:03 [info] : Thêm film mới với ID: 6
+2025-12-26 10:15:03 [info] : Dịch vụ: Thêm film mới với ID: 6
+2025-12-26 10:15:54 [error] : ZodError: [
+  {
+    "expected": "number",
+    "code": "invalid_type",
+    "received": "NaN",
+    "path": [
+      "MaPhim"
+    ],
+    "message": "Invalid input: expected number, received NaN"
+  }
+]
+    at updateFilm_Varlidator (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/validators/Film/update_Film_validator.js:62:25)
+    at updateFilmDTO.fromRequest (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/dtos/Film/update_Film.dto.js:31:23)
+    at updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:58:37)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at param (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:600:14)
+2025-12-26 10:16:14 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:16:14 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:16:14 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:17:29 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:17:29 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:17:29 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (D:\API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.updateFilm_Repo (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Film_repo.js:42:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.updateFilm_Service (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Services/Film/Film_services.js:41:28)
+    at async updateFilm_Controller (file:///D:/API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Films_Controller.js:60:28)
+2025-12-26 10:18:43 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:18:43 [info] : MySQL connected successfully
+2025-12-26 10:18:53 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:18:53 [info] : MySQL connected successfully
+2025-12-26 10:19:01 [info] : Cập nhật film với ID: 6
+2025-12-26 10:19:01 [info] : Dịch vụ: Cập nhật film với ID: 6
+2025-12-26 10:22:30 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:22:30 [info] : MySQL connected successfully
+2025-12-26 10:22:45 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:22:45 [info] : MySQL connected successfully
+2025-12-26 10:22:56 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:22:56 [info] : MySQL connected successfully
+2025-12-26 10:22:59 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:22:59 [info] : MySQL connected successfully
+2025-12-26 10:23:04 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:23:04 [info] : MySQL connected successfully
+2025-12-26 10:23:30 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:23:30 [info] : MySQL connected successfully
+2025-12-26 10:23:42 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:23:42 [info] : MySQL connected successfully
+2025-12-26 10:23:52 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:23:52 [info] : MySQL connected successfully
+2025-12-26 10:25:28 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:25:28 [info] : MySQL connected successfully
+2025-12-26 10:25:47 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:25:47 [info] : MySQL connected successfully
+2025-12-26 10:26:02 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:02 [info] : MySQL connected successfully
+2025-12-26 10:26:08 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:08 [info] : MySQL connected successfully
+2025-12-26 10:26:15 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:15 [info] : MySQL connected successfully
+2025-12-26 10:26:16 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:16 [info] : MySQL connected successfully
+2025-12-26 10:26:18 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:18 [info] : MySQL connected successfully
+2025-12-26 10:26:20 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:20 [info] : MySQL connected successfully
+2025-12-26 10:26:25 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:25 [info] : MySQL connected successfully
+2025-12-26 10:26:27 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:27 [info] : MySQL connected successfully
+2025-12-26 10:26:33 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:33 [info] : MySQL connected successfully
+2025-12-26 10:26:56 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:26:56 [info] : MySQL connected successfully
+2025-12-26 10:28:08 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:08 [info] : MySQL connected successfully
+2025-12-26 10:28:13 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:13 [info] : MySQL connected successfully
+2025-12-26 10:28:18 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:18 [info] : MySQL connected successfully
+2025-12-26 10:28:23 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:23 [info] : MySQL connected successfully
+2025-12-26 10:28:46 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:46 [info] : MySQL connected successfully
+2025-12-26 10:28:50 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:50 [info] : MySQL connected successfully
+2025-12-26 10:28:51 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:51 [info] : MySQL connected successfully
+2025-12-26 10:28:57 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:28:57 [info] : MySQL connected successfully
+2025-12-26 10:29:01 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:29:01 [info] : MySQL connected successfully
+2025-12-26 10:29:20 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:29:20 [info] : MySQL connected successfully
+2025-12-26 10:29:22 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:29:22 [info] : MySQL connected successfully
+2025-12-26 10:29:25 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:29:25 [info] : MySQL connected successfully
+2025-12-26 10:29:29 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:29:29 [info] : MySQL connected successfully
+2025-12-26 10:29:31 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:29:31 [info] : MySQL connected successfully
+2025-12-26 10:29:41 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:29:41 [info] : MySQL connected successfully
+2025-12-26 10:31:14 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:14 [info] : MySQL connected successfully
+2025-12-26 10:31:17 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:17 [info] : MySQL connected successfully
+2025-12-26 10:31:29 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:29 [info] : MySQL connected successfully
+2025-12-26 10:31:31 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:31 [info] : MySQL connected successfully
+2025-12-26 10:31:33 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:33 [info] : MySQL connected successfully
+2025-12-26 10:31:38 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:38 [info] : MySQL connected successfully
+2025-12-26 10:31:42 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:42 [info] : MySQL connected successfully
+2025-12-26 10:31:45 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:45 [info] : MySQL connected successfully
+2025-12-26 10:31:46 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:46 [info] : MySQL connected successfully
+2025-12-26 10:31:50 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:50 [info] : MySQL connected successfully
+2025-12-26 10:31:54 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:54 [info] : MySQL connected successfully
+2025-12-26 10:31:58 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:31:58 [info] : MySQL connected successfully
+2025-12-26 10:32:03 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:03 [info] : MySQL connected successfully
+2025-12-26 10:32:04 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:04 [info] : MySQL connected successfully
+2025-12-26 10:32:07 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:07 [info] : MySQL connected successfully
+2025-12-26 10:32:10 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:10 [info] : MySQL connected successfully
+2025-12-26 10:32:14 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:14 [info] : MySQL connected successfully
+2025-12-26 10:32:16 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:16 [info] : MySQL connected successfully
+2025-12-26 10:32:17 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:18 [info] : MySQL connected successfully
+2025-12-26 10:32:22 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:32:23 [info] : MySQL connected successfully
+2025-12-26 10:34:35 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:34:36 [info] : MySQL connected successfully
+2025-12-26 10:34:38 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:34:38 [info] : MySQL connected successfully
+2025-12-26 10:35:22 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:35:22 [info] : MySQL connected successfully
+2025-12-26 10:35:49 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:35:49 [info] : MySQL connected successfully
+2025-12-26 10:36:00 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:36:00 [info] : MySQL connected successfully
+2025-12-26 10:36:39 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:36:39 [info] : MySQL connected successfully
+2025-12-26 10:36:41 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:36:41 [info] : MySQL connected successfully
+2025-12-26 10:37:02 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:02 [info] : MySQL connected successfully
+2025-12-26 10:37:20 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:20 [info] : MySQL connected successfully
+2025-12-26 10:37:27 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:27 [info] : MySQL connected successfully
+2025-12-26 10:37:29 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:29 [info] : MySQL connected successfully
+2025-12-26 10:37:47 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:47 [info] : MySQL connected successfully
+2025-12-26 10:37:48 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:48 [info] : MySQL connected successfully
+2025-12-26 10:37:54 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:54 [info] : MySQL connected successfully
+2025-12-26 10:37:56 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:37:56 [info] : MySQL connected successfully
+2025-12-26 10:38:25 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:38:25 [info] : MySQL connected successfully
+2025-12-26 10:38:30 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:38:30 [info] : MySQL connected successfully
+2025-12-26 10:38:32 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:38:32 [info] : MySQL connected successfully
+2025-12-26 10:38:55 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:38:55 [info] : MySQL connected successfully
+2025-12-26 10:39:23 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 10:39:23 [info] : MySQL connected successfully
+2025-12-26 10:39:30 [info] : MySQL connected successfully
+2025-12-26 10:39:31 [info] : MySQL connected successfully
+2025-12-26 10:39:36 [info] : MySQL connected successfully
+2025-12-26 10:39:39 [info] : MySQL connected successfully
+2025-12-26 10:39:43 [info] : MySQL connected successfully
+2025-12-26 10:39:45 [info] : MySQL connected successfully
+2025-12-26 11:05:12 [info] : MySQL connected successfully
+2025-12-26 11:05:19 [info] : MySQL connected successfully
+2025-12-26 11:05:22 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:05:22 [info] : MySQL connected successfully
+2025-12-26 11:05:29 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:05:29 [info] : MySQL connected successfully
+2025-12-26 11:05:40 [info] : Xóa film với ID: 6
+2025-12-26 11:05:40 [info] : Dịch vụ: Xóa film với ID: 6
+2025-12-26 11:06:01 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:06:01 [info] : MySQL connected successfully
+2025-12-26 11:06:18 [info] : Lấy tất cả khách hàng
+2025-12-26 11:06:18 [info] : Dịch vụ: Lấy tất cả khách hàng
+2025-12-26 11:07:05 [info] : Lấy khách hàng với MaKH: 1
+2025-12-26 11:07:05 [info] : Dịch vụ: Lấy khách hàng với MaKH: 1
+2025-12-26 11:08:20 [info] : Thêm khách hàng mới với ID: 4
+2025-12-26 11:08:20 [info] : Dịch vụ: Thêm khách hàng mới thành công với ID: 4
+2025-12-26 11:09:23 [info] : Cập nhật khách hàng với ID: 4
+2025-12-26 11:09:23 [info] : Dịch vụ: Cập nhật khách hàng ID: 4
+2025-12-26 11:09:33 [info] : Xóa khách hàng với ID: 4
+2025-12-26 11:09:33 [info] : Dịch vụ: Xóa khách hàng ID: 4
+2025-12-26 11:11:25 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:11:25 [info] : MySQL connected successfully
+2025-12-26 11:11:27 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:11:27 [info] : MySQL connected successfully
+2025-12-26 11:11:33 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:11:33 [info] : MySQL connected successfully
+2025-12-26 11:11:37 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:11:37 [info] : MySQL connected successfully
+2025-12-26 11:11:40 [info] : Server đang chạy tại http://localhost:3000
+2025-12-26 11:11:40 [info] : MySQL connected successfully

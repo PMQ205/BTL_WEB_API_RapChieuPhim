@@ -7,7 +7,7 @@ const connectionOptions = process.env.MYSQL_URI ?? {
   host: process.env.MYSQL_HOST || "localhost",
   port: process.env.MYSQL_PORT || 3306,
   user: process.env.MYSQL_USERNAME || "root",
-  password: process.env.MYSQL_PASSWORD || "Quan175204@",
+  password: process.env.MYSQL_PASSWORD || "Ptb11112k5@",
   database: process.env.MYSQL_DBNAME || "RAPCHIEUPHIM",
 };
 
