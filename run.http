@@ -7,9 +7,55 @@ Accept: application/json
 GET http://localhost:3000/films/1
 Accept: application/json
 
+### Đăng ký customer
+POST http://localhost:3000/auth/register
+Content-Type: application/json
 
-### Thêm phim mới
+{
+  "TenKH": "BINH GEY",
+  "TenDangNhap": "BINHGEY",
+  "MatKhau": "123456"
+}
+### đăng nhập lấy token
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "TenDangNhap": "BINHGEY",
+  "MatKhau": "123456"
+}
+
+### test customer ko thêm được film
 POST http://localhost:3000/films
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MywiaWF0IjoxNzY3MTY1Njk1LCJleHAiOjE3NjcxNjkyOTV9.4kq2TzMfaes9pUx0xHNdRnrat_9InfhvWgUAAWe6ono
+Content-Type: application/json
+
+{
+  "TenPhim": "Avengers: Endgame",
+  "TheLoai": "Hành động, Viễn tưởng",
+  "TomTat": "Trận chiến cuối cùng với Thanos.",
+  "Trailer": "https://youtube.com/trailer",
+  "ThoiLuong": 180,
+  "DaoDien": "Anthony Russo",
+  "DienVien": "Chris Evans, Robert Downey Jr"
+}
+### update thành admin trong sql
+UPDATE KHACHHANG
+SET MaRole = 1
+WHERE MaKH = 4;
+
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "TenDangNhap": "BINHGEY",
+  "MatKhau": "123456"
+}
+### thêm phim mới
+POST http://localhost:3000/films
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6MywiaWF0IjoxNzY3MTY1NzMyLCJleHAiOjE3NjcxNjkzMzJ9.64yMhaSe-IyOhgg0A89_9ohPGlRPMBq_lpAMw8qqnQA
 Content-Type: application/json
 
 {
@@ -22,9 +68,9 @@ Content-Type: application/json
   "DienVien": "Chris Evans, Robert Downey Jr"
 }
 
-
 ### Cập nhật phim theo ID
-PUT http://localhost:3000/films/1
+PUT http://localhost:3000/films/12
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6MSwiaWF0IjoxNzY2NzMxMDQxLCJleHAiOjE3NjY3MzQ2NDF9.XJftXVTsQig5G2coiomAONHZehA71_N9F6wiQHtnpy4
 Content-Type: application/json
 
 {
@@ -34,5 +80,5 @@ Content-Type: application/json
 
 
 ### Xóa phim theo ID
-DELETE http://localhost:3000/films/1
-Accept: application/json
+DELETE http://localhost:3000/films/10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6MSwiaWF0IjoxNzY2NzI1NTE5LCJleHAiOjE3NjY3MjkxMTl9.B8mSUJReZpxqFZJHTaqNmNNjsVr6iQeCmoDYVUBbqRg

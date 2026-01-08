@@ -44,6 +44,10 @@ export const create_Films_Validator = z.object({
     .min(1)
     .max(255)
     .regex(/^[\p{L}\s,]+$/u, "Tên diễn viên chỉ được chứa chữ, khoảng trắng và dấu phẩy"),
+    
+  Anh: z.string()
+  .trim()
+  .min(1)
 })
 .strict();
 

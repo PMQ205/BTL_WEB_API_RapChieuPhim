@@ -1,0 +1,99 @@
+2025-12-19 13:44:50 [error] : ZodError: [
+  {
+    "expected": "number",
+    "code": "invalid_type",
+    "received": "NaN",
+    "path": [
+      "MaPhim"
+    ],
+    "message": "Invalid input: expected number, received NaN"
+  }
+]
+    at updateFilm_Varlidator (file:///E:/webAPI/BTLAPI/Sources/validators/Film/update_Film_validator.js:62:25)
+    at updateFilmDTO.fromRequest (file:///E:/webAPI/BTLAPI/Sources/dtos/Film/update_Film.dto.js:31:23)
+    at updateFilm_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:58:37)
+    at Layer.handleRequest (E:\webAPI\BTLAPI\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTLAPI\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTLAPI\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTLAPI\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTLAPI\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTLAPI\node_modules\router\index.js:295:15
+    at param (E:\webAPI\BTLAPI\node_modules\router\index.js:600:14)
+2025-12-19 13:44:55 [error] : ZodError: [
+  {
+    "expected": "number",
+    "code": "invalid_type",
+    "received": "NaN",
+    "path": [
+      "MaPhim"
+    ],
+    "message": "Invalid input: expected number, received NaN"
+  }
+]
+    at updateFilm_Varlidator (file:///E:/webAPI/BTLAPI/Sources/validators/Film/update_Film_validator.js:62:25)
+    at updateFilmDTO.fromRequest (file:///E:/webAPI/BTLAPI/Sources/dtos/Film/update_Film.dto.js:31:23)
+    at updateFilm_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:58:37)
+    at Layer.handleRequest (E:\webAPI\BTLAPI\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTLAPI\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTLAPI\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTLAPI\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTLAPI\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTLAPI\node_modules\router\index.js:295:15
+    at param (E:\webAPI\BTLAPI\node_modules\router\index.js:600:14)
+2025-12-19 13:45:39 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///E:/webAPI/BTLAPI/Sources/repositories/Film_repo.js:19:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///E:/webAPI/BTLAPI/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-19 13:45:39 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///E:/webAPI/BTLAPI/Sources/repositories/Film_repo.js:19:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///E:/webAPI/BTLAPI/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-19 13:45:39 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///E:/webAPI/BTLAPI/Sources/repositories/Film_repo.js:19:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///E:/webAPI/BTLAPI/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-19 13:45:47 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///E:/webAPI/BTLAPI/Sources/repositories/Film_repo.js:19:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///E:/webAPI/BTLAPI/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-19 13:45:47 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///E:/webAPI/BTLAPI/Sources/repositories/Film_repo.js:19:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///E:/webAPI/BTLAPI/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-19 13:45:47 [error] : Error: Unknown column 'id' in 'where clause'
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.getFilmsByID_Repo (file:///E:/webAPI/BTLAPI/Sources/repositories/Film_repo.js:19:37)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.getFilmsByID_Service (file:///E:/webAPI/BTLAPI/Sources/Services/Film/Film_services.js:19:21)
+    at async getFilmsByID_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:29:21)
+2025-12-19 13:48:20 [error] : ZodError: [
+  {
+    "expected": "number",
+    "code": "invalid_type",
+    "received": "NaN",
+    "path": [
+      "MaPhim"
+    ],
+    "message": "Invalid input: expected number, received NaN"
+  }
+]
+    at updateFilm_Varlidator (file:///E:/webAPI/BTLAPI/Sources/validators/Film/update_Film_validator.js:62:25)
+    at updateFilmDTO.fromRequest (file:///E:/webAPI/BTLAPI/Sources/dtos/Film/update_Film.dto.js:31:23)
+    at updateFilm_Controller (file:///E:/webAPI/BTLAPI/Sources/Controllers/Films_Controller.js:58:37)
+    at Layer.handleRequest (E:\webAPI\BTLAPI\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTLAPI\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTLAPI\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTLAPI\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTLAPI\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTLAPI\node_modules\router\index.js:295:15
+    at param (E:\webAPI\BTLAPI\node_modules\router\index.js:600:14)

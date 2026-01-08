@@ -1,0 +1,151 @@
+phân biệt parse và safeparse
+
+Ví dụ (C#): int.TryParse("abc", out result)
+
+Thay vì báo lỗi, hàm này trả về false và gán giá trị 0 cho biến kết quả. Chương trình vẫn tiếp tục chạy mượt mà.
+
+Ví dụ (Zod/TypeScript): schema.safeParse(data)
+
+Thay vì ném ra lỗi, nó trả về một đối tượng chứa trạng thái thành công (success: true) hoặc lỗi (success: false) cùng với thông tin chi tiết.
+kiểm tra bằng biến.success 
+vd 
+    const result = schema.safeParse(req.body);
+
+    if (!result.success) {
+      return res.status(400).json({
+        message: "Validation failed",
+        errors: result.error.errors
+      });
+    }
+#############################################################################################
+
+Mapping sang DTO – CỰC KỲ QUAN TRỌNG
+const dto: RegisterRequestDto = {
+  name: result.name,
+  email: result.email,
+  password: result.password
+};
+
+##################################################################################################################################################################
+
+###
+
+const db = await pool
+Ở đây pool là một Promise, không phải là object ngay lập tức.
+Muốn lấy được object pool thật (để query) bạn phải chờ promise hoàn thành → dùng await.
+
+###
+
+xóa file .prettienrrc và eslint.config.mjs nếu không tải 2 app này
+
+### Hướng code
+
+1.  invalidators
+    Nhiệm vụ:
+
+         Kiểm tra dữ liệu đầu vào từ client có hợp lệ không
+
+         Check kiểu dữ liệu (string, number, email…)
+
+         Check rule đơn giản (min length, max, optional…)
+
+         Trả lỗi nếu sai
+
+2.  dto (Data Transfer Object)
+    Chuẩn hóa dữ liệu sau khi validator kiểm tra xong
+
+         Convert type (string → number)
+                 vd:
+                         this.TenHang = TenHang.trim();
+                         this.DonGia = Number(DonGia);
+         Trim string
+
+         Loại bỏ field nguy hiểm
+
+         Đảm bảo dữ liệu đi xuống service sạch và chuẩn
+
+         Định nghĩa cấu trúc dữ liệu cố định
+
+3.  repository
+    lớp làm việc với DATABASE, gồm các hàm truy vấn SQL: findAll, findById, create, update, delete
+    Nhiệm vụ:
+    Viết SQL hoặc gọi ORM
+    Chỉ thao tác 1 bảng hoặc 1 mục dữ liệu
+    => Repository = nơi chứa các hàm truy vấn DB
+4.  services
+    Gọi các hàm bên repository
+    Thêm nghiệp vụ (logic)
+    vd
+    if (dto.SoLuong <= 0) throw new Error("Số lượng phải > 0");
+    Kiểm tra tồn tại
+    vd
+    const exist = await hangHoaRepository.findByName(dto.TenHang);
+    if (exist) throw new Error("Tên hàng đã tồn tại");
+    Kiểm tra trùng dữ liệu
+
+         Tính toán
+         Xử lý nhiều bảng
+         Gọi API bên ngoài
+         Transaction (quan trọng nhất)
+         Format dữ liệu trả về
+
+5.  controller
+    Controller là lớp trung gian giữa Router và Service,
+    Controller nhận: req.params, req.query, req.body, req.headers, req.files …
+    Controller gọi validator để kiểm tra dữ liệu chứ không tự kiểm tra
+    Tạo DTO từ dữ liệu đã validate
+    Nhận request → Validate + DTO → Gọi service → Trả response
+6.  routers
+
+Film API Documentation
+Film API cung cấp chức năng CRUD để quản lý phim thông qua REST API và sử dụng JSON.
+
+Base URL:
+http://localhost:3000
+
+Lấy tất cả phim:
+GET /films
+Ví dụ:
+GET http://localhost:3000/films
+
+Accept: application/json
+
+Lấy phim theo ID:
+GET /films/:id
+Ví dụ:
+GET http://localhost:3000/films/1
+
+Accept: application/json
+
+Thêm phim mới:
+POST /films
+Content-Type: application/json
+Body:
+{
+"TenPhim": "Avengers: Endgame",
+"TheLoai": "Hành động, Viễn tưởng",
+"TomTat": "Trận chiến cuối cùng với Thanos.",
+"Trailer": "https://youtube.com/trailer
+",
+"ThoiLuong": 180,
+"DaoDien": "Anthony Russo",
+"DienVien": "Chris Evans, Robert Downey Jr"
+}
+
+Cập nhật phim theo ID:
+PUT /films/:id
+Ví dụ:
+PUT http://localhost:3000/films/1
+
+Body:
+{
+"TenPhim": "Avengers: Endgame - Updated",
+"ThoiLuong": 185
+}
+
+Xóa phim theo ID:
+DELETE /films/:id
+Ví dụ:
+DELETE http://localhost:3000/films/1
+
+Accept: application/json

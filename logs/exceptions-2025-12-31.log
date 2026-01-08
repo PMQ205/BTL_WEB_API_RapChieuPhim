@@ -1,0 +1,48 @@
+2025-12-31 14:20:34 [error] : ReferenceError: View_Router is not defined
+    at file:///E:/webAPI/BTLAPI/server.js:52:14
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2025-12-31 14:30:45 [error] : ReferenceError: Sources is not defined
+    at file:///E:/webAPI/BTLAPI/Sources/middleware/authorize.middleware.js:10:3
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2025-12-31 14:30:51 [error] : TypeError: Cannot read properties of undefined (reading 'js')
+    at file:///E:/webAPI/BTLAPI/Sources/middleware/authorize.middleware.js:10:22
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2025-12-31 14:31:22 [error] : ReferenceError: Sources is not defined
+    at file:///E:/webAPI/BTLAPI/Sources/middleware/authView.middleware.js:5:3
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2025-12-31 14:32:25 [error] : ReferenceError: attachUserToView is not defined
+    at file:///E:/webAPI/BTLAPI/server.js:49:9
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2025-12-31 14:32:26 [error] : ReferenceError: attachUserToView is not defined
+    at file:///E:/webAPI/BTLAPI/server.js:48:9
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2025-12-31 14:32:58 [error] : ReferenceError: Sources is not defined
+    at file:///E:/webAPI/BTLAPI/Sources/middleware/error.middleware.js:12:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+2025-12-31 14:35:26 [error] : ReferenceError: Sources is not defined
+    at file:///E:/webAPI/BTLAPI/Sources/Services/auth/Auth_services.js:38:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:377:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:691:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)

@@ -17,3 +17,5 @@ pool
   .getConnection()
   .then(() => logger.info("MySQL connected successfully"))
   .catch((err) => logger.error("MySQL connection failed", err));
+
+  

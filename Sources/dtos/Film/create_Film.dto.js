@@ -10,6 +10,8 @@ export class createFilm_DTO {
     this.ThoiLuong = data.ThoiLuong;
     this.DaoDien   = data.DaoDien;
     this.DienVien  = data.DienVien;
+    this.Anh       = data.Anh;
+    this.Loai      = data.Loai;
   }
 
   toObject() {
@@ -21,6 +23,8 @@ export class createFilm_DTO {
       ThoiLuong: this.ThoiLuong,
       DaoDien: this.DaoDien,
       DienVien: this.DienVien,
+      Anh: this.Anh,
+      Loai: this.Loai,
     };
   }
 
