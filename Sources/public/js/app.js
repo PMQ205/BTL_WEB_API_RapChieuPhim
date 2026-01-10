@@ -1,11 +1,23 @@
+/* global $, document */
+
 $(document).ready(() => {
     $('#hamburger-menu').click(() => {
         $('#hamburger-menu').toggleClass('active')
         $('#nav-menu').toggleClass('active')
     })
 
-    // setting owl carousel
+    // xử lý intro video
+    const video = document.getElementById('intro-vid');
+    const wrapper = document.getElementById('intro-video');
 
+    if (video && wrapper) {
+        video.onended = () => {
+            wrapper.classList.add('fade-out');
+            setTimeout(() => wrapper.style.display = 'none', 500);
+        };
+    }
+
+    // setting owl carousel
     let navText = ["<i class='bx bx-chevron-left'></i>", "<i class='bx bx-chevron-right'></i>"]
 
     $('#hero-carousel').owlCarousel({

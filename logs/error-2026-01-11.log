@@ -1,0 +1,13 @@
+2026-01-11 00:08:04 [error] : Error: Field 'Email' doesn't have a default value
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.createUser (file:///E:/webAPI/BTLAPI/Sources/repositories/Auth_repo.js:16:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.register (file:///E:/webAPI/BTLAPI/Sources/Services/auth/Auth_services.js:14:12)
+    at async register (file:///E:/webAPI/BTLAPI/Sources/Controllers/Auth_Controller_View.js:94:18)
+2026-01-11 00:10:16 [error] : Error: Column 'Email' cannot be null
+    at PromisePool.query (E:\webAPI\BTLAPI\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.createUser (file:///E:/webAPI/BTLAPI/Sources/repositories/Auth_repo.js:18:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.register (file:///E:/webAPI/BTLAPI/Sources/Services/auth/Auth_services.js:21:12)
+    at async register (file:///E:/webAPI/BTLAPI/Sources/Controllers/Auth_Controller_View.js:94:18)
+2026-01-11 00:10:30 [error] : ❌ MySQL connection failed

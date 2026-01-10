@@ -1,0 +1,50 @@
+<!-- SLIDE ITEM -->
+<div class="hero-slide-item">
+    <img src="<%= film.Anh || '/images/black-banner.png' %>" alt="<%= film.TenPhim || '' %>">
+    <div class="overlay"></div>
+    <div class="hero-slide-item-content">
+        <div class="item-content-wraper">
+            <div class="item-content-title top-down">
+                <%= film.TenPhim || 'Movie Title' %>
+            </div>
+            <div class="movie-infos top-down delay-2">
+                <div class="movie-info">
+                    <i class="bx bxs-star"></i>
+                    <span>9.5</span>
+                </div>
+                <div class="movie-info">
+                    <i class="bx bxs-time"></i>
+                    <span><%= film.ThoiLuong || 120 %> mins</span>
+                </div>
+                <div class="movie-info">
+                    <span>HD</span>
+                </div>
+                <div class="movie-info">
+                    <span>16+</span>
+                </div>
+            </div>
+            <div class="item-content-description top-down delay-4">
+                <%= film.TomTat || 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias ratione mollitia accusantium, facere ab suscipit.' %>
+            </div>
+            <div class="item-action top-down delay-6">
+                <% if (typeof film.MaPhim !== 'undefined' && film.MaPhim) { %>
+                    <a href="/film/<%= film.MaPhim %>" class="btn btn-hover">
+                        <i class="bx bxs-right-arrow"></i>
+                        <span>Xem chi tiết</span>
+                    </a>
+                <% } else if (film.Trailer && film.Trailer !== '#') { %>
+                    <a href="<%= film.Trailer %>" target="_blank" class="btn btn-hover">
+                        <i class="bx bxs-right-arrow"></i>
+                        <span>Xem Trailer</span>
+                    </a>
+                <% } else { %>
+                    <a href="#" class="btn btn-hover" onclick="return false;">
+                        <i class="bx bxs-right-arrow"></i>
+                        <span>Xem chi tiết</span>
+                    </a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SLIDE ITEM -->

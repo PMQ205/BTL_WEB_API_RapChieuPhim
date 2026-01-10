@@ -1,0 +1,253 @@
+<%- include('partials/head') %>
+<link rel="stylesheet" href="/css/seats.css" />
+
+<%- include('partials/nav') %>
+
+<div class="section seats-section">
+    <div class="container">
+        <% if (typeof showtime !== 'undefined' && showtime) { %>
+            <div class="seats-container">
+                <!-- Left: Movie Poster -->
+                <div>
+                    <div class="movie-poster-wrapper">
+                        <img src="<%= showtime.Anh || '/images/movies/default.jpg' %>" 
+                             alt="<%= showtime.TenPhim %>" 
+                             class="movie-poster-img">
+                        <div class="play-button" data-trailer="<%= showtime.Trailer ? showtime.Trailer : '#' %>">
+                            <i class="bx bx-play play-icon"></i>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <p><strong>Đạo diễn:</strong> <%= showtime.DaoDien || 'N/A' %></p>
+                        <p><strong>Diễn viên:</strong> <%= showtime.DienVien || 'N/A' %></p>
+                        <p><strong>Biên tập:</strong> <%= showtime.Edited || 'N/A' %></p>
+                    </div>
+                </div>
+
+                <!-- Right: Booking Info -->
+                <div class="booking-info">
+                    <h1 class="movie-title">
+                        <%= showtime.TenPhim %>
+                    </h1>
+                    <div class="movie-badges">
+                        <span class="badge">
+                            <%= showtime.ThoiLuong || 120 %> phút
+                        </span>
+                        <span class="badge">
+                            PG-13
+                        </span>
+                    </div>
+
+                    <!-- Date Selection -->
+                    <div class="date-selection-section">
+                        <h3 class="section-title">Chọn Ngày</h3>
+                        <div id="dateSelection" class="date-selection">
+                            <% 
+                            const showDate = new Date(showtime.GioChieu);
+                            const today = new Date();
+                            const showtimesList = typeof allShowtimes !== 'undefined' ? allShowtimes : [];
+                            
+                            // Nhóm lịch chiếu theo ngày
+                            const showtimesByDate = {};
+                            showtimesList.forEach(st => {
+                                const stDate = new Date(st.GioChieu);
+                                const dateKey = stDate.toISOString().split('T')[0];
+                                if (!showtimesByDate[dateKey]) {
+                                    showtimesByDate[dateKey] = [];
+                                }
+                                showtimesByDate[dateKey].push(st);
+                            });
+                            
+                            for (let i = 0; i < 7; i++) {
+                                const date = new Date(today);
+                                date.setDate(today.getDate() + i);
+                                const dateKey = date.toISOString().split('T')[0];
+                                const isSelected = date.toDateString() === showDate.toDateString();
+                                const dayNames = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+                                const dayName = dayNames[date.getDay()];
+                                const hasShowtimes = showtimesByDate[dateKey] && showtimesByDate[dateKey].length > 0;
+                                const dateBtnClass = isSelected ? 'date-btn selected' : (hasShowtimes ? 'date-btn available' : 'date-btn unavailable');
+                            %>
+                                <div class="<%= dateBtnClass %>" 
+                                     data-date="<%= dateKey %>">
+                                    <div class="date-day"><%= dayName %></div>
+                                    <div class="date-number"><%= date.getDate() %></div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <!-- Show Time Selection -->
+                    <div class="time-selection-section">
+                        <h3 class="section-title">Giờ Chiếu</h3>
+                        <div id="timeSelection" class="time-selection">
+                            <div>
+                                <div class="time-label">2D / 3D</div>
+                                <div class="time-buttons">
+                                    <% 
+                                    // Lấy các lịch chiếu cùng ngày với showtime hiện tại
+                                    const currentDateKey = showDate.toISOString().split('T')[0];
+                                    const sameDayShowtimes = showtimesByDate[currentDateKey] || [];
+                                    
+                                    sameDayShowtimes.forEach(st => {
+                                        const stTime = new Date(st.GioChieu);
+                                        const timeStr = stTime.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+                                        const isSelected = st.MaLich === showtime.MaLich;
+                                        const timeBtnClass = isSelected ? 'time-btn selected-time' : 'time-btn';
+                                    %>
+                                        <button type="button" 
+                                                class="<%= timeBtnClass %>"
+                                                data-malich="<%= st.MaLich %>">
+                                            <%= timeStr %>
+                                        </button>
+                                    <% }); %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Screen -->
+                    <div class="screen-section">
+                        <div class="screen-label">
+                            MÀN HÌNH
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seat Selection -->
+            <% if (typeof isAuthenticated === 'undefined' || !isAuthenticated) { %>
+                <div class="login-required">
+                    <p>Bạn cần đăng nhập để đặt vé</p>
+                    <a href="/login?redirect=<%= encodeURIComponent('/showtimes/' + showtime.MaLich) %>" class="btn btn-hover">
+                        <span>Đăng Nhập</span>
+                    </a>
+                </div>
+            <% } %>
+
+            <form id="bookingForm" method="POST" action="/api/ve" class="booking-form">
+                <input type="hidden" name="MaLich" value="<%= showtime.MaLich %>">
+                
+                <!-- Seat Map -->
+                <div id="seatMap" class="seat-map">
+                    <% 
+                    const rows = ['J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A'];
+                    const seatsPerRow = 10;
+                    const bookedSeatsArray = typeof bookedSeats !== 'undefined' ? bookedSeats : [];
+                    
+                    // Tính giá theo hàng (hàng sau đắt hơn)
+                    function getSeatPrice(rowIndex, basePrice) {
+                        if (rowIndex <= 1) return basePrice * 0.6; // Hàng A, B: 60%
+                        if (rowIndex <= 3) return basePrice * 0.7; // Hàng C, D: 70%
+                        if (rowIndex <= 5) return basePrice * 0.8; // Hàng E, F: 80%
+                        if (rowIndex <= 7) return basePrice * 0.9; // Hàng G, H: 90%
+                        return basePrice; // Hàng I, J: 100%
+                    }
+                    
+                    rows.forEach((row, rowIndex) => {
+                        const seatPrice = getSeatPrice(rowIndex, showtime.GiaVe);
+                    %>
+                        <div class="seat-row">
+                            <div class="row-label"><%= row %></div>
+                            <div class="seats-container-row">
+                                <% for (let i = 1; i <= seatsPerRow; i++) {
+                                    const seatId = row + i;
+                                    const isBooked = bookedSeatsArray.includes(seatId);
+                                    const seatBtnClass = isBooked ? 'seat-btn booked' : 'seat-btn available';
+                                %>
+                                    <div class="seat-wrapper">
+                                        <input type="checkbox" 
+                                               id="seat-<%= seatId %>" 
+                                               name="seats" 
+                                               value="<%= seatId %>"
+                                               data-price="<%= seatPrice %>"
+                                               class="seat-checkbox"
+                                               <% if (isBooked) { %>disabled<% } %>>
+                                        <label for="seat-<%= seatId %>" 
+                                               class="<%= seatBtnClass %>">
+                                            <div class="seat-number"><%= i %></div>
+                                            <div class="seat-price"><%= Math.round(seatPrice/1000) %>k</div>
+                                        </label>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <div class="row-spacer"></div>
+                        </div>
+                    <% }); %>
+                </div>
+
+                <!-- Legend -->
+                <div class="seat-legend">
+                    <div class="legend-item">
+                        <div class="legend-box empty"></div>
+                        <span>Trống</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box selected"></div>
+                        <span>Đã chọn</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box booked"></div>
+                        <span>Đã đặt</span>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div id="selectedSeats" class="booking-summary">
+                    <h3 class="summary-title">Thông Tin Đặt Vé</h3>
+                    <div class="summary-item">
+                        <strong>Phim:</strong> <%= showtime.TenPhim %>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Phòng:</strong> <%= showtime.TenPhong %>
+                    </div>
+                    <div class="summary-item">
+                        <strong>Thời gian:</strong> <%= new Date(showtime.GioChieu).toLocaleString('vi-VN', { 
+                            weekday: 'long',
+                            day: '2-digit', 
+                            month: '2-digit', 
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        }) %>
+                    </div>
+                    <div class="summary-seats">
+                        <strong>Ghế đã chọn:</strong>
+                        <div id="seatsList" class="seats-list"></div>
+                    </div>
+                    <div class="summary-total">
+                        <strong>Tổng tiền: </strong>
+                        <span id="totalPrice" class="total-price">0</span> VNĐ
+                    </div>
+                </div>
+
+                <% if (typeof isAuthenticated !== 'undefined' && isAuthenticated) { %>
+                    <button type="submit" 
+                            class="btn btn-hover" 
+                            id="bookBtn">
+                        <span>Đặt Vé Ngay</span>
+                    </button>
+                <% } %>
+            </form>
+        <% } else { %>
+            <div class="error-message">
+                <p>Không tìm thấy lịch chiếu</p>
+                <a href="/" class="btn btn-hover">
+                    <span>Về Trang Chủ</span>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<!-- Initialize seats data from server -->
+<div id="seatsData" 
+     data-price-per-ticket="<%= showtime && showtime.GiaVe ? showtime.GiaVe : 0 %>"
+     data-all-showtimes='<%- JSON.stringify(allShowtimes || []) %>'
+     data-current-ma-lich="<%= showtime && showtime.MaLich ? showtime.MaLich : 0 %>"
+     data-current-showtime-date="<%= showtime && showtime.GioChieu ? showtime.GioChieu : '' %>">
+</div>
+<script src="/js/seats.js"></script>
+
+<%- include('partials/footer', { footerMenus: [] }) %>
+<%- include('partials/scripts') %>

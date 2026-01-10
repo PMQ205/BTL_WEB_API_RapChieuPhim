@@ -1,0 +1,42 @@
+<!-- NAV -->
+<div class="nav-wrapper">
+  <div class="container">
+    <div class="nav">
+      <a href="#" class="logo">
+        <i class="bx bx-movie-play bx-tada main-color"></i>GA<span class="main-color">M</span>Y<span
+          class="main-color"
+          >W</span
+        >
+        LẬU XUYÊN QUỐC GIA
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Movies</a></li>
+        <li><a href="/">Series</a></li>
+        <% if (typeof isAuthenticated !== 'undefined' && isAuthenticated && user) { %>
+          <li><a href="/tickets">Vé của tôi</a></li>
+          <% if (user.role === 1 || user.role === 2) { %>
+            <li><a href="/admin">Quản trị</a></li>
+          <% } %>
+          <li style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: rgba(255, 255, 255, 0.8);">Xin chào, <%= user.name || user.username %></span>
+            <a href="/logout" class="btn btn-hover" style="padding: 0.5rem 1rem;">
+              <span>Đăng xuất</span>
+            </a>
+          </li>
+        <% } else { %>
+          <li>
+            <a href="/login" class="btn btn-hover">
+              <span>Đăng nhập</span>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+      <!-- MOBILE MENU TOGGLE -->
+      <div class="hamburger-menu" id="hamburger-menu">
+        <div class="hamburger"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END NAV -->

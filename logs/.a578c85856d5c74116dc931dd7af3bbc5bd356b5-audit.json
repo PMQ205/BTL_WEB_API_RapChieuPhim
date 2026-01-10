@@ -44,6 +44,21 @@
             "date": 1767728309423,
             "name": "logs\\rejections-2026-01-07.log",
             "hash": "3c92245f56982ed6bf424a1c5e73b8c708882268ee779bd2a8ca261c856fa1cc"
+        },
+        {
+            "date": 1767853907332,
+            "name": "logs\\rejections-2026-01-08.log",
+            "hash": "f8857ee3676c8be09c15e10bf5e54098283b14a887588ab9b4747221e2c88ad0"
+        },
+        {
+            "date": 1768050284905,
+            "name": "logs\\rejections-2026-01-10.log",
+            "hash": "bb283776b2d0894d3aa387f5037c4f025de20809e702de93a4f94ec5001f0fba"
+        },
+        {
+            "date": 1768065004596,
+            "name": "logs\\rejections-2026-01-11.log",
+            "hash": "31488ab34b3253ae6de962e6154d9a62e67d82cbd906fa82f75394e569f1ca98"
         }
     ],
     "hashType": "sha256"

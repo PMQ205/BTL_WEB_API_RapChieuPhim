@@ -1,0 +1,59 @@
+<%- include('../partials/head') %>
+
+<%- include('../partials/nav') %>
+
+<div class="section" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container" style="max-width: 500px;">
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; backdrop-filter: blur(10px);">
+            <h2 style="color: var(--main-color); margin-bottom: 2rem; text-align: center;">Đăng Nhập</h2>
+            
+            <% if (typeof error !== 'undefined' && error) { %>
+                <div style="background: rgba(255, 0, 0, 0.2); color: #ff6b6b; padding: 1rem; border-radius: 5px; margin-bottom: 1.5rem; border-left: 4px solid #ff6b6b;">
+                    <%= error %>
+                </div>
+            <% } %>
+
+            <form method="POST" action="/login">
+                <input type="hidden" name="redirect" value="<%= typeof redirect !== 'undefined' ? redirect : '/' %>">
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Tên đăng nhập</label>
+                    <input 
+                        type="text" 
+                        name="TenDangNhap" 
+                        required 
+                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
+                        placeholder="Nhập tên đăng nhập"
+                    >
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Mật khẩu</label>
+                    <input 
+                        type="password" 
+                        name="MatKhau" 
+                        required 
+                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
+                        placeholder="Nhập mật khẩu"
+                    >
+                </div>
+
+                <button 
+                    type="submit" 
+                    class="btn btn-hover" 
+                    style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;"
+                >
+                    <span>Đăng Nhập</span>
+                </button>
+
+                <div style="text-align: center; color: rgba(255, 255, 255, 0.7);">
+                    Chưa có tài khoản? 
+                    <a href="/register" style="color: var(--main-color); text-decoration: none; font-weight: 600;">Đăng ký ngay</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>

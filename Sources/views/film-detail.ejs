@@ -1,0 +1,84 @@
+<%- include('partials/head') %>
+
+<%- include('partials/nav') %>
+
+<div class="section" style="min-height: 80vh; padding-top: 2rem;">
+    <div class="container">
+        <% if (typeof film !== 'undefined' && film) { %>
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 3rem;">
+                <div>
+                    <img src="<%= film.Anh || '/images/movies/default.jpg' %>" alt="<%= film.TenPhim %>" 
+                         style="width: 100%; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+                </div>
+                <div style="color: #fff;">
+                    <h1 style="color: var(--main-color); margin-bottom: 1rem; font-size: 2.5rem;"><%= film.TenPhim %></h1>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                        <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;"><%= film.TheLoai %></span>
+                        <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;"><%= film.ThoiLuong %> phút</span>
+                        <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px;"><%= film.Loai || 'MOVIE' %></span>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--main-color); margin-bottom: 0.5rem;">Tóm tắt</h3>
+                        <p style="line-height: 1.6; color: rgba(255,255,255,0.8);"><%= film.TomTat || 'Chưa có mô tả' %></p>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p><strong>Đạo diễn:</strong> <%= film.DaoDien || 'N/A' %></p>
+                        <p><strong>Diễn viên:</strong> <%= film.DienVien || 'N/A' %></p>
+                    </div>
+                    <% if (film.Trailer) { %>
+                        <a href="<%= film.Trailer %>" target="_blank" class="btn btn-hover" >
+                            <i class="bx bx-play"></i>
+                            <span>Xem Trailer</span>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <h2 style="color: var(--main-color); margin-bottom: 2rem; text-align: center;">Lịch Chiếu</h2>
+                
+                <% if (typeof showtimes !== 'undefined' && showtimes.length > 0) { %>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+                        <% showtimes.forEach(showtime => { %>
+                            <div style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+                                <div style="margin-bottom: 1rem;">
+                                    <h3 style="color: var(--main-color); margin-bottom: 0.5rem;"><%= showtime.TenPhong %></h3>
+                                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.5rem;">
+                                        <i class="bx bx-calendar"></i> 
+                                        <%= new Date(showtime.GioChieu).toLocaleString('vi-VN', { 
+                                            day: '2-digit', 
+                                            month: '2-digit', 
+                                            year: 'numeric',
+                                            hour: '2-digit',
+                                            minute: '2-digit'
+                                        }) %>
+                                    </p>
+                                    <p style="color: var(--main-color); font-size: 1.2rem; font-weight: bold;">
+                                        <%= Number(showtime.GiaVe).toLocaleString('vi-VN') %> VNĐ
+                                    </p>
+                                </div>
+                                <a href="/showtimes/<%= showtime.MaLich %>" class="btn btn-hover" style="width: 100%;">
+                                    <span>Chọn Ghế</span>
+                                </a>
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } else { %>
+                    <p style="text-align: center; color: rgba(255,255,255,0.7); padding: 2rem;">
+                        Chưa có lịch chiếu cho phim này
+                    </p>
+                <% } %>
+            </div>
+        <% } else { %>
+            <div style="text-align: center; padding: 3rem; color: rgba(255,255,255,0.7);">
+                <p>Không tìm thấy thông tin phim</p>
+                <a href="/" class="btn btn-hover" style="margin-top: 1rem; display: inline-block;">
+                    <span>Về Trang Chủ</span>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer', { footerMenus: [] }) %>
+<%- include('partials/scripts') %>

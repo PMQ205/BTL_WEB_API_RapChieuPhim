@@ -1,0 +1,19 @@
+<%- include('partials/head') %>
+
+<%- include('partials/nav') %>
+
+<div class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container" style="text-align: center; color: #fff;">
+        <i class="bx bx-error-circle" style="font-size: 5rem; color: var(--main-color); margin-bottom: 2rem;"></i>
+        <h1 style="color: var(--main-color); margin-bottom: 1rem; font-size: 3rem;">Oops!</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.8);">
+            <%= typeof message !== 'undefined' ? message : 'Đã có lỗi xảy ra' %>
+        </p>
+        <a href="/" class="btn btn-hover" style="display: inline-block;">
+            <span>Về Trang Chủ</span>
+        </a>
+    </div>
+</div>
+
+<%- include('partials/footer', { footerMenus: [] }) %>
+<%- include('partials/scripts') %>
