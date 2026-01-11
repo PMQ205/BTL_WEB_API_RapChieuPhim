@@ -1,92 +1,148 @@
-<%- include('../partials/head') %>
+<%- include('partials/head') %>
 
-<%- include('../partials/nav') %>
+<link rel="stylesheet" href="/css/register-plan.css">
 
-<div class="section" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
-    <div class="container" style="max-width: 500px;">
-        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; backdrop-filter: blur(10px);">
-            <h2 style="color: var(--main-color); margin-bottom: 2rem; text-align: center;">Đăng Ký</h2>
+<%- include('partials/nav') %>
+
+<div class="pricing-section">
+    <div class="container">
+        <div class="pricing-title">
+            <h1>GAMYW LẬU XUYÊN QUỐC GIA</h1>
+            <p>Chọn gói phù hợp với bạn</p>
+        </div>
+
+        <div class="plan-grid">
+            <% 
+            const pricingPlans = [
+                { 
+                    name: 'Basic', 
+                    price: 'Free', 
+                    period: '', 
+                    highlight: false,
+                    features: [
+                        { text: 'Originals', del: false },
+                        { text: 'Switch plans anytime', del: false },
+                        { text: '65+ top Live', del: false },
+                        { text: 'TV Channels', del: false },
+                        { text: 'HD Video Quality', del: false }
+                    ]
+                },
+                { 
+                    name: 'Premium', 
+                    price: '$15.99', 
+                    period: '/month', 
+                    highlight: true,
+                    features: [
+                        { text: 'Originals', del: false },
+                        { text: 'Switch plans anytime', del: false },
+                        { text: 'Full HD Video Quality', del: false },
+                        { text: '65+ top Live', del: false },
+                        { text: 'TV Channels', del: false }
+                    ]
+                },
+                { 
+                    name: 'VIP', 
+                    price: '$35.99', 
+                    period: '/month', 
+                    highlight: false,
+                    features: [
+                        { text: 'Originals', del: false },
+                        { text: 'Switch plans anytime', del: false },
+                        { text: '65+ top Live', del: false },
+                        { text: 'TV Channels', del: false },
+                        { text: '4K Video Quality', del: false }
+                    ]
+                }
+            ];
             
-            <% if (typeof error !== 'undefined' && error) { %>
-                <div style="background: rgba(255, 0, 0, 0.2); color: #ff6b6b; padding: 1rem; border-radius: 5px; margin-bottom: 1.5rem; border-left: 4px solid #ff6b6b;">
-                    <%= error %>
-                </div>
-            <% } %>
+            pricingPlans.forEach((plan) => { %>
+                <div class="plan-card <%= plan.highlight ? 'highlight' : '' %>">
+                    
+                    <% if (plan.highlight) { %>
+                        <div class="plan-badge">PHỔ BIẾN NHẤT</div>
+                    <% } %>
 
-            <form method="POST" action="/register">
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Họ và tên</label>
-                    <input 
-                        type="text" 
-                        name="TenKH" 
-                        required 
-                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
-                        placeholder="Nhập họ và tên"
-                    >
-                </div>
+                    <div class="plan-header">
+                        <h2><%= plan.name %></h2>
+                        <div class="plan-price">
+                            <span><%= plan.price %></span>
+                            <% if (plan.period) { %>
+                                <span><%= plan.period %></span>
+                            <% } %>
+                        </div>
+                    </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
-                    <input 
-                        type="email" 
-                        name="Email" 
-                        required 
-                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
-                        placeholder="Nhập email của bạn"
-                    >
-                </div>
+                    <div>
+                        <% plan.features.forEach((feature) => { %>
+                            <div class="plan-feature <%= feature.del ? 'del' : '' %>">
+                                <% if (feature.del) { %>
+                                    <i class="bx bx-x"></i>
+                                <% } else { %>
+                                    <i class="bx bx-check"></i>
+                                <% } %>
+                                <span><%= feature.text %></span>
+                            </div>
+                        <% }); %>
+                    </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Tên đăng nhập</label>
-                    <input 
-                        type="text" 
-                        name="TenDangNhap" 
-                        required 
-                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
-                        placeholder="Nhập tên đăng nhập"
-                    >
+                    <button 
+                        type="button" 
+                        class="btn btn-hover plan-select-btn <%= plan.highlight ? 'highlight' : '' %>"
+                        data-plan="<%= plan.name.toLowerCase() %>">
+                        <span>ĐĂNG KÝ NGAY</span>
+                    </button>
                 </div>
+            <% }); %>
+        </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Mật khẩu</label>
-                    <input 
-                        type="password" 
-                        name="MatKhau" 
-                        required 
-                        minlength="6"
-                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
-                        placeholder="Nhập mật khẩu (ít nhất 6 ký tự)"
-                    >
-                </div>
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Xác nhận mật khẩu</label>
-                    <input 
-                        type="password" 
-                        name="MatKhauXacNhan" 
-                        required 
-                        minlength="6"
-                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
-                        placeholder="Nhập lại mật khẩu"
-                    >
-                </div>
-
-                <button 
-                    type="submit" 
-                    class="btn btn-hover" 
-                    style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;"
-                >
-                    <span>Đăng Ký</span>
+        <!-- Registration Form Modal -->
+        <div id="registerModal">
+            <div class="modal-box">
+                <button onclick="closeModal()" class="close-btn">
+                    <i class="bx bx-x"></i>
                 </button>
+                
+                <h2 class="modal-title">
+                    Đăng Ký Gói <span id="planName"></span>
+                </h2>
+                
+                <% if (typeof error !== 'undefined' && error) { %>
+                    <div class="error-box"><%= error %></div>
+                <% } %>
 
-                <div style="text-align: center; color: rgba(255, 255, 255, 0.7);">
-                    Đã có tài khoản? 
-                    <a href="/login" style="color: var(--main-color); text-decoration: none; font-weight: 600;">Đăng nhập</a>
-                </div>
-            </form>
+                <form method="POST" action="/register-plan" id="planRegisterForm">
+                    <input type="hidden" name="plan" id="selectedPlan" value="">
+                    
+                    <label>Họ và tên</label>
+                    <input type="text" name="TenKH" class="modal-input" required placeholder="Nhập họ và tên">
+
+                    <label>Email</label>
+                    <input type="email" name="Email" class="modal-input" required placeholder="Nhập email của bạn">
+
+                    <label>Tên đăng nhập</label>
+                    <input type="text" name="TenDangNhap" class="modal-input" required placeholder="Nhập tên đăng nhập">
+
+                    <label>Mật khẩu</label>
+                    <input type="password" name="MatKhau" minlength="6" class="modal-input" required placeholder="Nhập mật khẩu (ít nhất 6 ký tự)">
+
+                    <label>Xác nhận mật khẩu</label>
+                    <input type="password" name="MatKhauXacNhan" minlength="6" class="modal-input" required placeholder="Nhập lại mật khẩu">
+
+                    <button type="submit" class="btn btn-hover" style="width: 100%; padding: 1rem; font-size: 1.1rem; font-weight: bold;">
+                        <span>Đăng Ký</span>
+                    </button>
+
+                    <div class="modal-login-ref">
+                        Đã có tài khoản? 
+                        <a href="/login">Đăng nhập</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
-<%- include('../partials/footer', { footerMenus: [] }) %>
-<%- include('../partials/scripts') %>
+<script src="/js/register-plan.js"></script>
+
+<%- include('partials/footer', { footerMenus: [] }) %>
+<%- include('partials/scripts') %>
