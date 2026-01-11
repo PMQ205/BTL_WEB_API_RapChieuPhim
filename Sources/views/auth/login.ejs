@@ -1,59 +1,121 @@
 <%- include('../partials/head') %>
 
+<link rel="stylesheet" href="/css/login.css">
 <%- include('../partials/nav') %>
 
-<div class="section" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
-    <div class="container" style="max-width: 500px;">
-        <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; backdrop-filter: blur(10px);">
-            <h2 style="color: var(--main-color); margin-bottom: 2rem; text-align: center;">Đăng Nhập</h2>
-            
+<div class="login-page">
+    <div class="retro-background">
+        <div class="y2k-grid">
+            <div class="grid-dots"></div>
+            <div class="scanner-lines">
+                <div class="scan-line scan-1"></div>
+                <div class="scan-line scan-2"></div>
+                <div class="scan-line scan-3"></div>
+            </div>
+        </div>
+        <div class="floating-orbs">
+            <div class="retro-orb orb-1"></div>
+            <div class="retro-orb orb-2"></div>
+            <div class="retro-orb orb-3"></div>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <div class="future-card">
+
+            <div class="chrome-header">
+                <h1 class="y2k-title">
+                    <span class="title-chrome">FUTURE</span>
+                    <span class="title-neon">MOVIE</span>
+                </h1>
+                <p class="retro-subtitle">GET ALL MOVIE YOU WANT</p>
+            </div>
+
             <% if (typeof error !== 'undefined' && error) { %>
-                <div style="background: rgba(255, 0, 0, 0.2); color: #ff6b6b; padding: 1rem; border-radius: 5px; margin-bottom: 1.5rem; border-left: 4px solid #ff6b6b;">
-                    <%= error %>
-                </div>
+            <div class="retro-error-box">
+                <%= error %>
+            </div>
             <% } %>
 
-            <form method="POST" action="/login">
-                <input type="hidden" name="redirect" value="<%= typeof redirect !== 'undefined' ? redirect : '/' %>">
-                
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Tên đăng nhập</label>
-                    <input 
-                        type="text" 
-                        name="TenDangNhap" 
-                        required 
-                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
-                        placeholder="Nhập tên đăng nhập"
-                    >
+            <form method="POST" action="/login" id="loginForm">
+                <div class="retro-field">
+                    <div class="field-chrome">
+                        <input type="text" name="TenDangNhap" id="email" placeholder=" " required autocomplete="username">
+                        <label for="email">Tên đăng nhập</label>
+                        <div class="field-hologram"></div>
+                    </div>
+                    <span class="retro-error" id="emailError"></span>
                 </div>
 
-                <div style="margin-bottom: 1.5rem;">
-                    <label style="display: block; color: #fff; margin-bottom: 0.5rem; font-weight: 500;">Mật khẩu</label>
-                    <input 
-                        type="password" 
-                        name="MatKhau" 
-                        required 
-                        style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 5px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 1rem;"
-                        placeholder="Nhập mật khẩu"
-                    >
+                <div class="retro-field">
+                    <div class="field-chrome">
+                        <input type="password" name="MatKhau" id="password" placeholder=" " required autocomplete="current-password">
+                        <label for="password">Mật khẩu</label>
+
+                        <button type="button" class="retro-toggle" id="passwordToggle">
+                            <div class="toggle-chrome"></div>
+                        </button>
+
+                        <div class="field-hologram"></div>
+                    </div>
+                    <span class="retro-error" id="passwordError"></span>
                 </div>
 
-                <button 
-                    type="submit" 
-                    class="btn btn-hover" 
-                    style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;"
-                >
-                    <span>Đăng Nhập</span>
+                <button type="submit" class="retro-button">
+                    <div class="button-chrome"></div>
+                    <span class="button-text">Đăng nhập</span>
+                    <div class="button-loader"></div>
                 </button>
-
-                <div style="text-align: center; color: rgba(255, 255, 255, 0.7);">
-                    Chưa có tài khoản? 
-                    <a href="/register" style="color: var(--main-color); text-decoration: none; font-weight: 600;">Đăng ký ngay</a>
-                </div>
             </form>
+
+            <div class="retro-divider">
+                <span class="divider-text">Hoặc</span>
+            </div>
+
+            <div class="future-social">
+
+                <a href="/auth/github" class="social-retro">
+                    <div class="social-chrome"></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 .5a12 12 0 00-3.79 23.39c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61A3.18 3.18 0 003.5 17.9c-1.09-.75.09-.74.09-.74a2.53 2.53 0 011.84 1.24 2.57 2.57 0 003.49 1A2.57 2.57 0 019.94 17c-2.66-.3-5.47-1.33-5.47-5.91A4.63 4.63 0 016.11 7.4a4.3 4.3 0 01.12-3.18s1-.33 3.3 1.24a11.2 11.2 0 016 0C17.8 3.89 18.8 4.22 18.8 4.22a4.3 4.3 0 01.12 3.18 4.63 4.63 0 011.64 3.69c0 4.6-2.82 5.61-5.5 5.9a2.88 2.88 0 01.83 2.23v3.3c0 .32.21.69.82.57A12 12 0 0012 .5z">
+                        </path>
+                    </svg>
+                    <span>GitHub</span>
+                    <div class="social-hologram"></div>
+                </a>
+            
+                <a href="/auth/google" class="social-retro">
+                    <div class="social-chrome"></div>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M21.6 12.23c0-.64-.06-1.25-.17-1.84H12v3.48h5.4a4.6 4.6 0 01-2 3.02v2.51h3.24a9.6 9.6 0 002.96-7.17z"
+                            fill="#4285F4" />
+                        <path
+                            d="M12 22a9.4 9.4 0 006.48-2.38l-3.24-2.5a5.88 5.88 0 01-8.74-3.1H3.16v2.58A10 10 0 0012 22z"
+                            fill="#34A853" />
+                        <path
+                            d="M5.5 14.02A6 6 0 015.18 12c0-.7.12-1.37.32-2l-2.7-2.09A10 10 0 003.15 12c0 1.6.38 3.1 1.04 4.43l2.7-2.41z"
+                            fill="#FBBC04" />
+                        <path
+                            d="M12 5.58a5.4 5.4 0 013.8 1.49l2.83-2.83A9.47 9.47 0 0012 2 10 10 0 003.15 8.91l2.7 2.09a6 6 0 016.15-5.42z"
+                            fill="#EA4335" />
+                    </svg>
+                    <span>Google</span>
+                    <div class="social-hologram"></div>
+                </a>
+            
+            </div>
+            
+
+            <div class="future-signup">
+                <span class="signup-text">Chưa có tài khoản?</span>
+                <a href="/register" class="future-link signup-link">Đăng ký ngay</a>
+            </div>
         </div>
     </div>
 </div>
 
+<script src="/js/login.js"></script>
 <%- include('../partials/footer', { footerMenus: [] }) %>
-<%- include('../partials/scripts') %>
+

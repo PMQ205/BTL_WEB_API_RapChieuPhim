@@ -662,3 +662,94 @@
 2026-01-11 03:55:04 [info] : Dịch vụ: Lấy film với MaPhim: 14
 2026-01-11 03:55:04 [info] : Lấy lịch chiếu theo MaPhim: 14
 2026-01-11 03:55:04 [info] : Dịch vụ: Lấy lịch chiếu theo MaPhim: 14
+2026-01-11 22:03:37 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 22:03:37 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 22:04:37 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 22:04:37 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 22:04:41 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:04:41 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:04:41 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 22:04:41 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 22:04:41 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 22:04:41 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 22:04:41 [info] : Lấy films theo Loai: SERIES
+2026-01-11 22:04:41 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 22:04:41 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 22:04:41 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 22:04:41 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 22:08:16 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 22:08:16 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 22:11:08 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 22:11:08 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 22:11:14 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 22:11:14 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 22:17:58 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 22:17:59 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 22:18:04 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 22:18:04 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 22:20:27 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:20:27 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:20:27 [info] : Lấy films theo Loai: SERIES
+2026-01-11 22:20:27 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 22:20:27 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 22:20:27 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 22:20:27 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 22:20:27 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 22:20:27 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 22:20:27 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 22:20:27 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 22:22:35 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 22:22:35 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 22:22:35 [info] : Lấy films theo Loai: SERIES
+2026-01-11 22:22:35 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 22:22:35 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 22:22:35 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 22:22:35 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:22:35 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:22:35 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 22:22:35 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 22:22:35 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 22:22:39 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 22:22:39 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 22:22:39 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 22:22:39 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 22:22:39 [info] : Lấy films theo Loai: SERIES
+2026-01-11 22:22:39 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 22:22:39 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 22:22:39 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 22:22:39 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:22:39 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:22:39 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 22:59:36 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 22:59:36 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 22:59:36 [info] : Lấy films theo Loai: SERIES
+2026-01-11 22:59:36 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 22:59:37 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:59:37 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 22:59:37 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 22:59:37 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 22:59:37 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 22:59:37 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 22:59:37 [info] : Home page - Hero: 0, Movies: 0, Series: 0, Cartoons: 0, Top: 0
+2026-01-11 23:04:19 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:04:19 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:04:19 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:04:19 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:04:19 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:04:19 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:04:19 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:04:19 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:04:19 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:04:19 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:04:19 [info] : Home page - Hero: 0, Movies: 0, Series: 0, Cartoons: 0, Top: 0
+2026-01-11 23:06:00 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:06:00 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:06:00 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:06:00 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:06:00 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:06:00 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:06:00 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:06:00 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:06:00 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:06:00 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:06:00 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
