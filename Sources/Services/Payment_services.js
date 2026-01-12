@@ -1,25 +1,37 @@
 import { payment_Repo } from '../repositories/Payment_repo.js'
 import { ve_Repo } from '../repositories/Ve_repo.js'
+import { giaoDichTmp_Repo } from '../repositories/GiaoDichTmp_repo.js'
 import { logger } from '../config/logger.js'
 import { ApiError } from '../utils/ApiError.js'
 import { vnpayConfig } from '../config/vnpay.config.js'
 
 export const payment_Services = {
-  // Tạo URL thanh toán VNPay
+
+  // ⭐ Tạo URL thanh toán VNPay + lưu ghế PENDING
   createPaymentUrl_Service: async (paymentInfo) => {
     try {
-      const { MaKH, MaLich, SoTien, ipAddr } = paymentInfo
+      const { MaKH, MaLich, SoTien, seatData, ipAddr } = paymentInfo
 
-      // Validate dữ liệu
-      if (!MaKH || !MaLich || !SoTien) {
-        throw new ApiError('Thông tin thanh toán không đầy đủ', 400)
+      if (!MaKH || !MaLich || !SoTien || !seatData || seatData.length === 0) {
+        throw new ApiError('Thiếu dữ liệu đặt vé', 400)
       }
 
-      // Tạo mã giao dịch unique
       const orderId = vnpayConfig.generateOrderId()
-      const amount = vnpayConfig.formatCurrency(SoTien) // Chuyển VNĐ thành số nguyên
+      const amount = vnpayConfig.formatCurrency(SoTien)
 
-      // Lưu vào DB với trạng thái PENDING
+      // 👉 1. Lưu GHẾ TẠM GIỮ
+      // 👉 1. Lưu GHẾ TẠM GIỮ
+      for (const seat of seatData) {
+        await giaoDichTmp_Repo.createHold_Repo({
+          MaGD: orderId,
+          MaKH,
+          MaLich,
+          GheNgoi: seat.GheNgoi
+        })
+      }
+
+
+      // 👉 2. Lưu Transaction trạng thái PENDING
       await payment_Repo.createPayment_Repo({
         MaKH,
         MaLich,
@@ -27,7 +39,7 @@ export const payment_Services = {
         MaGD: orderId,
       })
 
-      // Tạo dữ liệu gửi sang VNPay
+      // 👉 3. Build URL VNPay
       const paymentData = {
         vnp_Version: '2.1.0',
         vnp_Command: 'pay',
@@ -43,14 +55,13 @@ export const payment_Services = {
         vnp_CreateDate: new Date().toISOString().replace(/[-:T.]/g, '').substring(0, 14),
       }
 
-      // Tạo URL thanh toán
       const paymentUrl = vnpayConfig.buildPaymentUrl(
         paymentData,
         process.env.VNPAY_SECRET_KEY,
         process.env.VNPAY_URL
       )
 
-      logger.info(`Tạo URL thanh toán VNPay cho đơn hàng ${orderId}`)
+      logger.info(`Tạo URL thanh toán VNPay cho ${orderId}`)
       return { paymentUrl, orderId }
     } catch (error) {
       logger.error('Lỗi tạo URL thanh toán', error)
@@ -58,12 +69,11 @@ export const payment_Services = {
     }
   },
 
-  // Xử lý callback từ VNPay
+  // ⭐ Callback – tạo vé khi thanh toán thành công
   handlePaymentCallback_Service: async (vnpParams) => {
     try {
       const { vnp_TxnRef, vnp_ResponseCode, vnp_SecureHash } = vnpParams
 
-      // Verify checksum từ VNPay
       const secureHashParams = { ...vnpParams }
       delete secureHashParams.vnp_SecureHash
       delete secureHashParams.vnp_SecureHashType
@@ -73,28 +83,32 @@ export const payment_Services = {
         process.env.VNPAY_SECRET_KEY,
         vnp_SecureHash
       )
+      if (!isValid) throw new ApiError('Chữ ký không hợp lệ', 400)
 
-      if (!isValid) {
-        throw new ApiError('Chữ ký thanh toán không hợp lệ', 400)
-      }
-
-      // Cập nhật trạng thái thanh toán
       const status = vnp_ResponseCode === '00' ? 'SUCCESS' : 'FAILED'
       await payment_Repo.updatePaymentStatus_Repo(vnp_TxnRef, status, vnp_ResponseCode)
 
-      // Nếu thanh toán thành công, tạo vé
+      // 🟢 Thanh toán thành công
       if (vnp_ResponseCode === '00') {
         const payment = await payment_Repo.getPaymentByMaGD_Repo(vnp_TxnRef)
-        if (payment) {
-          // Tạo vé
-          const ticketData = {
+        const tmpSeats = await giaoDichTmp_Repo.getByMaGD_Repo(vnp_TxnRef)
+
+        if (payment && tmpSeats && tmpSeats.length > 0) {
+          // tạo vé theo từng ghế
+          const tickets = tmpSeats.map(tmp => ({
             MaKH: payment.MaKH,
             MaLich: payment.MaLich,
-            GheNgoi: 'TBD', // Sẽ được cập nhật từ client
-            TongTien: payment.SoTien,
-          }
-          await ve_Repo.create_Repo(ticketData)
-          logger.info(`Tạo vé thành công cho giao dịch ${vnp_TxnRef}`)
+            GheNgoi: tmp.GheNgoi,
+            TongTien: payment.SoTien / tmpSeats.length,
+            TrangThai: 'ACTIVE'
+          }))
+
+          await ve_Repo.createMultiple_Repo(tickets)
+
+          // xóa record ghế tạm
+          await giaoDichTmp_Repo.deleteByMaGD_Repo(vnp_TxnRef)
+
+          logger.info(`Tạo ${tickets.length} vé cho ${vnp_TxnRef}`)
         }
       }
 
@@ -109,11 +123,9 @@ export const payment_Services = {
     }
   },
 
-  // Lấy lịch sử thanh toán của khách hàng
   getPaymentHistory_Service: async (MaKH) => {
     try {
       const payments = await payment_Repo.getAllPayments_Repo(MaKH)
-      logger.info(`Lấy lịch sử thanh toán của khách hàng ${MaKH}`)
       return payments
     } catch (error) {
       logger.error(`Lỗi lấy lịch sử thanh toán`, error)

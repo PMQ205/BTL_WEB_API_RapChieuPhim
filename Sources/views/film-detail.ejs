@@ -57,14 +57,10 @@
                                         <%= Number(showtime.GiaVe).toLocaleString('vi-VN') %> VNĐ
                                     </p>
                                 </div>
-                                <button class="btn btn-hover" 
-                                        data-ma-lich="<%= showtime.MaLich %>"
-                                        data-gia-ve="<%= showtime.GiaVe %>"
-                                        onclick="if(window.paymentHandler) paymentHandler.openPaymentModal(this.dataset.maLich, this.dataset.giaVe)" 
-                                        style="width: 100%; cursor: pointer;">
+                                <a href="/showtimes/<%= showtime.MaLich %>" class="btn btn-hover" style="width: 100%; display:block; text-align:center;">
                                     <i class="bx bx-ticket"></i>
                                     <span>ĐẶT VÉ NGAY</span>
-                                </button>
+                                </a>
                             </div>
                         <% }); %>
                     </div>
@@ -85,9 +81,7 @@
     </div>
 </div>
 
-<%- include('payment-modal') %>
 
 <%- include('partials/footer', { footerMenus: [] }) %>
 <%- include('partials/scripts') %>
 
-<script src="/js/payment.js"></script>

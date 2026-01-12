@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return
       }
 
-      try {
+      try { 
         // Thay vì tạo vé ngay, tạo giao dịch tạm thời
         const formData = selectedSeats.map((seat) => ({
           MaLich: currentMaLich,
