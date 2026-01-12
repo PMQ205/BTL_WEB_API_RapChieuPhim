@@ -99,23 +99,32 @@ router.get('/showtimes/:id', async (req, res) => {
       return res.status(404).render('error', { message: 'Không tìm thấy lịch chiếu' })
     }
 
-    // Lấy tất cả lịch chiếu của phim này để hiển thị các giờ chiếu khác
+    // Lấy tất cả lịch chiếu của phim
     const allShowtimes = await lichChieu_Services
       .getByFilmId_Service(showtime.MaPhim)
       .catch(() => [])
 
-    const bookedSeats = await lichChieu_Services.getBookedSeats_Service(MaLich).catch(() => [])
+    // 🔥 Lấy ghế đã ĐẶT
+    const bookedSeatsVE = await lichChieu_Services.getBookedSeats_Service(MaLich).catch(() => [])
+
+    // 🔥 Lấy ghế đang GIỮ (PENDING)
+    const bookedSeatsTMP = await lichChieu_Services.getPendingSeats_Service(MaLich).catch(() => [])
+
+    // 🔥 Gộp cả hai danh sách
+    const bookedSeats = [...new Set([...bookedSeatsVE, ...bookedSeatsTMP])]
 
     res.render('seats', {
-      showtime: showtime,
-      allShowtimes: allShowtimes, // Tất cả lịch chiếu của phim
-      bookedSeats: bookedSeats,
+      showtime,
+      allShowtimes,
+      bookedSeats,
+      isAuthenticated: !!req.session.user
     })
   } catch (error) {
     logger.error('Lỗi render showtimes:', error)
     res.status(500).render('error', { message: 'Đã có lỗi xảy ra' })
   }
 })
+
 
 // Tickets page (user's tickets)
 router.get('/tickets', requireAuth, async (req, res) => {

@@ -81,10 +81,22 @@ export const lichChieu_Controller = {
       if (Number.isNaN(MaLich)) {
         return res.status(400).json({ message: 'MaLich không hợp lệ' })
       }
-      const seats = await lichChieu_Services.getBookedSeats_Service(MaLich)
-      res.status(200).json({ bookedSeats: seats })
+  
+      // Lấy ghế đã đặt (VE)
+      const bookedSeatsVE = await lichChieu_Services.getBookedSeats_Service(MaLich)
+  
+      // Lấy ghế đang giữ (PENDING)
+      const bookedSeatsTMP = await lichChieu_Services.getPendingSeats_Service
+        ? await lichChieu_Services.getPendingSeats_Service(MaLich)
+        : []
+  
+      // Gộp VE + TMP
+      const allSeats = [...new Set([...bookedSeatsVE, ...bookedSeatsTMP])]
+  
+      res.status(200).json({ bookedSeats: allSeats })
     } catch (error) {
       next(error)
     }
   },
+  
 }

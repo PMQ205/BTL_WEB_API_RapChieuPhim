@@ -1,0 +1,160 @@
+2026-01-12 00:18:15 [error] : Error: E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\Sources\views\auth\register.ejs:1
+ >> 1| <%- include('partials/head') %>
+    2| 
+    3| <link rel="stylesheet" href="/css/register-plan.css">
+    4| 
+
+Could not find the include file "partials/head"
+    at getIncludePath (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:185:13)
+    at includeFile (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:311:19)
+    at include (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:701:16)
+    at eval ("E:\\webAPI\\BTL_API\\BTL_WEB_API_RapChieuPhim\\Sources\\views\\auth\\register.ejs":10:17)
+    at register (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:703:17)
+    at tryHandleCache (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:274:36)
+    at exports.renderFile [as engine] (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:491:10)
+    at View.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:627:10)
+    at app.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:574:3)
+2026-01-12 00:18:51 [error] : Error: E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\Sources\views\auth\register.ejs:1
+ >> 1| <%- include('partials/head') %>
+    2| 
+    3| <link rel="stylesheet" href="/css/register-plan.css">
+    4| 
+
+Could not find the include file "partials/head"
+    at getIncludePath (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:185:13)
+    at includeFile (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:311:19)
+    at include (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:701:16)
+    at eval ("E:\\webAPI\\BTL_API\\BTL_WEB_API_RapChieuPhim\\Sources\\views\\auth\\register.ejs":10:17)
+    at register (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:703:17)
+    at tryHandleCache (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:274:36)
+    at exports.renderFile [as engine] (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:491:10)
+    at View.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:627:10)
+    at app.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:574:3)
+2026-01-12 00:20:25 [error] : Error: E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\Sources\views\auth\register.ejs:1
+ >> 1| <%- include('partials/head') %>
+    2| 
+    3| <link rel="stylesheet" href="/css/register-plan.css">
+    4| 
+
+Could not find the include file "partials/head"
+    at getIncludePath (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:185:13)
+    at includeFile (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:311:19)
+    at include (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:701:16)
+    at eval ("E:\\webAPI\\BTL_API\\BTL_WEB_API_RapChieuPhim\\Sources\\views\\auth\\register.ejs":10:17)
+    at register (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:703:17)
+    at tryHandleCache (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:274:36)
+    at exports.renderFile [as engine] (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:491:10)
+    at View.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:627:10)
+    at app.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:574:3)
+2026-01-12 00:21:24 [error] : Error: E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\Sources\views\auth\register.ejs:147
+    145| <script src="/js/register-plan.js"></script>
+    146| 
+ >> 147| <%- include('partials/footer', { footerMenus: [] }) %>
+    148| <%- include('partials/scripts') %>
+    149| 
+
+Could not find the include file "partials/footer"
+    at getIncludePath (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:185:13)
+    at includeFile (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:311:19)
+    at include (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:701:16)
+    at eval ("E:\\webAPI\\BTL_API\\BTL_WEB_API_RapChieuPhim\\Sources\\views\\auth\\register.ejs":126:17)
+    at register (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:703:17)
+    at tryHandleCache (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:274:36)
+    at exports.renderFile [as engine] (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\ejs\lib\ejs.js:491:10)
+    at View.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\view.js:139:8)
+    at tryRender (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:627:10)
+    at app.render (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\express\lib\application.js:574:3)
+2026-01-12 00:55:18 [error] : Error: Field 'TongTien' doesn't have a default value
+    at PromisePoolConnection.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at Object.createMultiple_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Ve_repo.js:102:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.create_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Ve/Ve_services.js:44:25)
+    at async create (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Ve_Controller.js:47:25)
+2026-01-12 00:55:18 [error] : Error: Field 'TongTien' doesn't have a default value
+    at PromisePoolConnection.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at Object.createMultiple_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Ve_repo.js:102:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.create_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Ve/Ve_services.js:44:25)
+    at async create (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Ve_Controller.js:47:25)
+2026-01-12 00:55:18 [error] : Error: Field 'TongTien' doesn't have a default value
+    at PromisePoolConnection.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at Object.createMultiple_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Ve_repo.js:102:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.create_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Ve/Ve_services.js:44:25)
+    at async create (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Ve_Controller.js:47:25)
+2026-01-12 01:20:34 [error] : TypeError: authRepo.findByUsername is not a function
+    at login (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Auth_Controller_View.js:36:35)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at processParams (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:582:12)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:291:5)
+    at router.handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:186:3)
+2026-01-12 01:20:40 [error] : TypeError: authRepo.findByUsername is not a function
+    at login (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Auth_Controller_View.js:36:35)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at processParams (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:582:12)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:291:5)
+    at router.handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:186:3)
+2026-01-12 01:21:07 [error] : TypeError: authRepo.findByUsername is not a function
+    at login (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Auth_Controller_View.js:36:35)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at processParams (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:582:12)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:291:5)
+    at router.handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:186:3)
+2026-01-12 01:22:08 [error] : TypeError: authRepo.findByUsername is not a function
+    at login (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Auth_Controller_View.js:36:35)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at processParams (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:582:12)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:291:5)
+    at router.handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:186:3)
+2026-01-12 02:05:21 [error] : Error: Thông tin vé không đầy đủ (MaKH, MaLich, GheNgoi)
+    at Object.create_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Ve/Ve_services.js:40:17)
+    at create (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Ve_Controller.js:47:43)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\route.js:117:3)
+    at handle (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\lib\layer.js:152:17)
+    at E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:295:15
+    at processParams (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:582:12)
+    at next (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\router\index.js:291:5)
+2026-01-12 02:10:55 [error] : Error: Field 'TongTien' doesn't have a default value
+    at PromisePoolConnection.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at Object.createMultiple_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Ve_repo.js:102:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.create_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Ve/Ve_services.js:44:25)
+    at async create (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Ve_Controller.js:53:25)
+2026-01-12 02:10:55 [error] : Error: Field 'TongTien' doesn't have a default value
+    at PromisePoolConnection.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at Object.createMultiple_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Ve_repo.js:102:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.create_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Ve/Ve_services.js:44:25)
+    at async create (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Ve_Controller.js:53:25)
+2026-01-12 02:10:55 [error] : Error: Field 'TongTien' doesn't have a default value
+    at PromisePoolConnection.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\connection.js:29:22)
+    at Object.createMultiple_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/Ve_repo.js:102:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Object.create_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Ve/Ve_services.js:44:25)
+    at async create (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Ve_Controller.js:53:25)

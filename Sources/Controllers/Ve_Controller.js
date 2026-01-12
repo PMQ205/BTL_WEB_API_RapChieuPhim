@@ -5,12 +5,11 @@ export const ve_Controller = {
   getAll: async (req, res, next) => {
     try {
       // Nếu là admin/staff, lấy tất cả. Nếu là customer, chỉ lấy của mình
+      const userId = req.user?.MaKH || req.user?.id;
       const MaKH =
         req.user && (req.user.role === 1 || req.user.role === 2)
           ? null
-          : req.user
-            ? req.user.id
-            : null
+          : userId ? userId : null
       const ves = await ve_Services.getAll_Service(MaKH)
       res.status(200).json(ves)
     } catch (error) {
@@ -27,7 +26,8 @@ export const ve_Controller = {
       const ve = await ve_Services.getById_Service(MaVe)
 
       // Kiểm tra quyền: customer chỉ xem được vé của mình
-      if (req.user && req.user.role === 3 && ve.MaKH !== req.user.id) {
+      const userId = req.user?.MaKH || req.user?.id;
+      if (req.user && req.user.role === 3 && ve.MaKH !== userId) {
         return res.status(403).json({ message: 'Không có quyền truy cập' })
       }
 
@@ -43,10 +43,29 @@ export const ve_Controller = {
         return res.status(401).json({ message: 'Chưa đăng nhập' })
       }
 
+      // DEBUG: log req.user để kiểm tra OAuth
+      console.log('DEBUG Ve_Controller create - req.user:', { 
+        MaKH: req.user.MaKH, 
+        id: req.user.id,
+        TenKH: req.user.TenKH,
+        Email: req.user.Email,
+        provider: req.user.provider,
+        allKeys: Object.keys(req.user)
+      });
+
+      // Lấy MaKH từ req.user.MaKH (OAuth/DB) hoặc req.user.id (fallback)
+      const MaKH = req.user.MaKH || req.user.id;
+      if (!MaKH) {
+        console.error('ERROR Ve_Controller: MaKH không được lấy từ req.user');
+        return res.status(400).json({ message: 'Không lấy được mã khách hàng' })
+      }
+
+      console.log('DEBUG Ve_Controller: MaKH =', MaKH);
+
       const tickets = Array.isArray(req.body) ? req.body : [req.body]
       const insertIds = await ve_Services.create_Service(
         tickets.map((ticket) => ({
-          MaKH: req.user.id,
+          MaKH: MaKH,
           MaLich: ticket.MaLich,
           GheNgoi: ticket.GheNgoi,
         }))
@@ -68,7 +87,8 @@ export const ve_Controller = {
       // Kiểm tra quyền: customer chỉ xóa được vé của mình
       if (req.user && req.user.role === 3) {
         const ve = await ve_Services.getById_Service(MaVe)
-        if (ve.MaKH !== req.user.id) {
+        const userId = req.user.MaKH || req.user.id;
+        if (ve.MaKH !== userId) {
           return res.status(403).json({ message: 'Không có quyền xóa vé này' })
         }
       }

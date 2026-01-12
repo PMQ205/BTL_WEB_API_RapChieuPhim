@@ -11,3 +11,12 @@
     at async Object.register (file:///E:/webAPI/BTLAPI/Sources/Services/auth/Auth_services.js:21:12)
     at async register (file:///E:/webAPI/BTLAPI/Sources/Controllers/Auth_Controller_View.js:94:18)
 2026-01-11 00:10:30 [error] : ❌ MySQL connection failed
+2026-01-11 23:47:57 [error] : TypeError: authRepo.createByOAuth is not a function
+    at Strategy._verify (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/config/passport.js:49:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-11 23:50:42 [error] : TypeError: authRepo.createByOAuth is not a function
+    at Strategy._verify (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/config/passport.js:49:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-11 23:51:19 [error] : TypeError: authRepo.createByOAuth is not a function
+    at Strategy._verify (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/config/passport.js:26:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

@@ -1,0 +1,321 @@
+<!-- Modal thanh toán -->
+<div id="payment-modal" class="payment-modal" style="display: none;">
+  <div class="payment-modal-content">
+    <!-- Header -->
+    <div class="payment-modal-header">
+      <h2>Chọn ghế và thanh toán</h2>
+      <button id="close-payment-modal" class="close-btn">&times;</button>
+    </div>
+
+    <!-- Body -->
+    <div class="payment-modal-body">
+      <input type="hidden" id="MaLich" value="">
+
+      <!-- Sơ đồ ghế -->
+      <div class="seat-selection">
+        <h3>Chọn ghế</h3>
+        <div class="cinema-screen">Màn hình</div>
+        <div class="seat-grid" id="seat-grid">
+          <!-- Ghế sẽ được tạo bởi JavaScript từ dữ liệu API -->
+        </div>
+        <div class="seat-legend">
+          <div class="legend-item">
+            <span class="seat available"></span> Ghế trống
+          </div>
+          <div class="legend-item">
+            <span class="seat booked"></span> Ghế đã đặt
+          </div>
+          <div class="legend-item">
+            <span class="seat selected"></span> Ghế đã chọn
+          </div>
+        </div>
+      </div>
+
+      <!-- Tóm tắt thanh toán -->
+      <div class="payment-summary">
+        <h3>Tóm tắt đơn hàng</h3>
+        <div class="summary-row">
+          <span>Ghế chọn:</span>
+          <span id="selected-seats-display">Chưa chọn ghế</span>
+        </div>
+        <div class="summary-row">
+          <span>Số lượng:</span>
+          <span id="selected-seats-count">0</span>
+        </div>
+        <div class="summary-row total">
+          <span>Tổng tiền:</span>
+          <span id="total-amount-display">0 ₫</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="payment-modal-footer">
+      <button id="cancel-payment-btn" class="btn btn-secondary">Hủy</button>
+      <button id="payment-btn" class="btn btn-primary" disabled>Thanh toán</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  .payment-modal-content {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .payment-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .payment-modal-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+  }
+
+  .close-btn:hover {
+    color: #333;
+  }
+
+  .payment-modal-body {
+    padding: 20px;
+  }
+
+  .seat-selection h3,
+  .payment-summary h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 18px;
+  }
+
+  .cinema-screen {
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(to bottom, #e8f4f8, #b3e5fc);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #0277bd;
+  }
+
+  .seat-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .seat {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+
+  .seat.available {
+    background-color: #4caf50;
+    border-color: #4caf50;
+    color: white;
+  }
+
+  .seat.available:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+  }
+
+  .seat.booked {
+    background-color: #f44336;
+    border-color: #f44336;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .seat.selected {
+    background-color: #2196f3;
+    border-color: #2196f3;
+    color: white;
+    box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+  }
+
+  .seat-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .legend-item .seat {
+    width: 24px;
+    height: 24px;
+    border: none;
+    cursor: default;
+  }
+
+  .payment-summary {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  .summary-row:last-child {
+    border-bottom: none;
+  }
+
+  .summary-row.total {
+    background-color: #fff;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2196f3;
+  }
+
+  .payment-modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background-color: #2196f3;
+    color: white;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: #1976d2;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.4);
+  }
+
+  .btn-primary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .btn-secondary {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+
+  .btn-secondary:hover {
+    background-color: #e0e0e0;
+  }
+
+  @media (max-width: 600px) {
+    .payment-modal-content {
+      width: 95%;
+      max-height: 95vh;
+    }
+
+    .seat-grid {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    .payment-modal-header h2 {
+      font-size: 20px;
+    }
+  }
+</style>
+
+<script>
+  // Đóng modal khi click X
+  document.getElementById('close-payment-modal').addEventListener('click', () => {
+    document.getElementById('payment-modal').style.display = 'none';
+  });
+
+  // Đóng modal khi click outside
+  window.addEventListener('click', (e) => {
+    const modal = document.getElementById('payment-modal');
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Cập nhật số lượng ghế
+  function updateSeatCount() {
+    const count = document.querySelectorAll('.seat.selected').length;
+    document.getElementById('selected-seats-count').textContent = count;
+  }
+
+  // Lắng nghe thay đổi ghế
+  const observer = new MutationObserver(() => {
+    updateSeatCount();
+  });
+
+  const seatGrid = document.getElementById('seat-grid');
+  observer.observe(seatGrid, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+</script>

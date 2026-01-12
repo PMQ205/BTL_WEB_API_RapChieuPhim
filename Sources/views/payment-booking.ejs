@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán vé xem phim</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .payment-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .ticket-summary {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-label {
+      color: #666;
+      font-weight: 500;
+    }
+
+    .summary-value {
+      color: #333;
+      font-weight: bold;
+    }
+
+    .summary-row.total {
+      background-color: #fff;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #2196f3;
+    }
+
+    .payment-methods {
+      margin-bottom: 30px;
+    }
+
+    .payment-methods h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .method-option {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .method-option:hover {
+      border-color: #2196f3;
+      background-color: #f9f9f9;
+    }
+
+    .method-option input[type="radio"] {
+      margin-right: 15px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+    }
+
+    .method-info {
+      flex: 1;
+    }
+
+    .method-name {
+      font-weight: bold;
+      color: #333;
+      font-size: 15px;
+    }
+
+    .method-desc {
+      color: #999;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-primary:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-secondary {
+      background-color: #e0e0e0;
+      color: #333;
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .btn-secondary:hover {
+      background-color: #d0d0d0;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: #666;
+    }
+
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #2196f3;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 600px) {
+      .payment-container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h1>Xác nhận thanh toán</h1>
+    <p class="subtitle">Vé của bạn đã được đặt thành công. Vui lòng chọn phương thức thanh toán.</p>
+
+    <!-- Tóm tắt vé -->
+    <div class="ticket-summary">
+      <div class="summary-row">
+        <span class="summary-label">Số ghế:</span>
+        <span class="summary-value" id="seatsDisplay">-</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Số lượng:</span>
+        <span class="summary-value" id="seatsCountDisplay">0</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Đơn giá:</span>
+        <span class="summary-value" id="priceDisplay">0 VNĐ</span>
+      </div>
+      <div class="summary-row total">
+        <span>Tổng tiền:</span>
+        <span id="totalDisplay">0 VNĐ</span>
+      </div>
+    </div>
+
+    <!-- Phương thức thanh toán -->
+    <div class="payment-methods">
+      <h3>Chọn phương thức thanh toán</h3>
+      <label class="method-option">
+        <input type="radio" name="paymentMethod" value="vnpay" checked>
+        <div class="method-info">
+          <div class="method-name">💳 VNPay</div>
+          <div class="method-desc">Thanh toán qua thẻ ATM, Debit, Credit hoặc ví điện tử</div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Nút hành động -->
+    <div class="action-buttons">
+      <button onclick="window.history.back()" class="btn btn-secondary">Quay lại</button>
+      <button onclick="proceedPayment()" class="btn btn-primary" id="paymentBtn">Thanh toán VNPay</button>
+    </div>
+
+    <!-- Loading spinner -->
+    <div class="loading" id="loadingSpinner">
+      <div class="spinner"></div>
+      <p>Đang xử lý thanh toán...</p>
+    </div>
+  </div>
+
+  <script>
+    // Lấy thông tin vé từ sessionStorage
+    function loadTicketInfo() {
+      const ticketInfo = sessionStorage.getItem('ticketInfo');
+      
+      if (!ticketInfo) {
+        alert('Không tìm thấy thông tin vé. Vui lòng đặt vé lại.');
+        window.location.href = '/';
+        return;
+      }
+
+      try {
+        const info = JSON.parse(ticketInfo);
+        const { selectedSeats, totalAmount, averagePrice } = info;
+
+        // Hiển thị thông tin
+        document.getElementById('seatsDisplay').textContent = selectedSeats.sort().join(', ');
+        document.getElementById('seatsCountDisplay').textContent = selectedSeats.length;
+        
+        // Hiển thị đơn giá (giá trung bình)
+        document.getElementById('priceDisplay').textContent = 
+          new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+          }).format(averagePrice || 0);
+        
+        // Hiển thị tổng tiền
+        document.getElementById('totalDisplay').textContent = 
+          new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+          }).format(totalAmount);
+
+        // Lưu MaLich và totalAmount để dùng khi thanh toán
+        window.MaLich = info.MaLich;
+        window.totalAmount = totalAmount;
+      } catch (error) {
+        console.error('Lỗi parse ticketInfo:', error);
+        alert('Có lỗi xảy ra. Vui lòng đặt vé lại.');
+        window.location.href = '/';
+      }
+    }
+
+    // Xử lý thanh toán
+    async function proceedPayment() {
+  const method = document.querySelector('input[name="paymentMethod"]:checked').value;
+  
+  if (method !== 'vnpay') {
+    alert('Phương thức thanh toán chưa được hỗ trợ');
+    return;
+  }
+
+  if (!window.MaLich || !window.totalAmount) {
+    alert('Thông tin vé không hợp lệ');
+    return;
+  }
+
+  document.getElementById('loadingSpinner').style.display = 'block';
+  document.getElementById('paymentBtn').disabled = true;
+
+  try {
+    // LẤY LẠI ticketInfo TRƯỚC KHI FETCH 🔥🔥🔥
+    const ticketInfo = JSON.parse(sessionStorage.getItem('ticketInfo'));
+    const seatData = ticketInfo.seatData || [];
+
+    const response = await fetch('/api/payment/create-payment-url', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        MaLich: parseInt(window.MaLich),
+        SoTien: window.totalAmount,
+        seatData // Gửi danh sách ghế lên BE 🔥
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      // Lưu orderId
+      ticketInfo.orderId = data.orderId;
+      sessionStorage.setItem('ticketInfo', JSON.stringify(ticketInfo));
+
+      // Tạo URL thanh toán VNPay
+      const paymentUrl = new URL(data.paymentUrl);
+      paymentUrl.searchParams.append('seatData', JSON.stringify(seatData));
+
+      window.location.href = paymentUrl.toString();
+    } else {
+      alert('Lỗi: ' + (data.message || 'Không thể tạo URL thanh toán'));
+      document.getElementById('loadingSpinner').style.display = 'none';
+      document.getElementById('paymentBtn').disabled = false;
+    }
+  } catch (error) {
+    console.error('Payment error:', error);
+    alert('Lỗi khi tạo thanh toán: ' + error.message);
+    document.getElementById('loadingSpinner').style.display = 'none';
+    document.getElementById('paymentBtn').disabled = false;
+  }
+}
+
+
+    // Load thông tin vé khi trang load
+    document.addEventListener('DOMContentLoaded', loadTicketInfo);
+  </script>
+</body>
+</html>

@@ -753,3 +753,121 @@
 2026-01-11 23:06:00 [info] : Lấy 3 featured films theo Loai: NEW
 2026-01-11 23:06:00 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
 2026-01-11 23:06:00 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 23:12:34 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:12:34 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:12:34 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:12:34 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:12:34 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:12:34 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:12:34 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:12:34 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:12:34 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:12:34 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:12:34 [info] : Home page - Hero: 0, Movies: 10, Series: 0, Cartoons: 0, Top: 0
+2026-01-11 23:14:32 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:14:32 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:14:32 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:14:32 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:14:32 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:14:32 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:14:32 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:14:32 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:14:32 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:14:32 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:14:32 [info] : Home page - Hero: 0, Movies: 10, Series: 0, Cartoons: 0, Top: 0
+2026-01-11 23:14:38 [info] : Lấy film với MaPhim: 10
+2026-01-11 23:14:38 [info] : Dịch vụ: Lấy film với MaPhim: 10
+2026-01-11 23:14:38 [info] : Lấy lịch chiếu theo MaPhim: 10
+2026-01-11 23:14:38 [info] : Dịch vụ: Lấy lịch chiếu theo MaPhim: 10
+2026-01-11 23:16:51 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:16:51 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:16:51 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:16:51 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:16:51 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:16:51 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:16:51 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:16:51 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:16:51 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:16:51 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:16:51 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 23:47:38 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:47:39 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:47:45 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:47:45 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:47:45 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:47:45 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:47:45 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:47:45 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:47:45 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:47:45 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:47:45 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:47:45 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:47:45 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 23:47:57 [error] : TypeError: authRepo.createByOAuth is not a function
+    at Strategy._verify (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/config/passport.js:49:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-11 23:50:35 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:50:35 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:50:42 [error] : TypeError: authRepo.createByOAuth is not a function
+    at Strategy._verify (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/config/passport.js:49:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-11 23:51:10 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:51:10 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:51:19 [error] : TypeError: authRepo.createByOAuth is not a function
+    at Strategy._verify (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/config/passport.js:26:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-01-11 23:52:53 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:52:53 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:53:01 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:53:01 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:53:25 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:53:25 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:54:01 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:54:01 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:54:19 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:54:20 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:54:31 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:54:32 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:54:33 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:54:34 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:54:54 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:54:54 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:54:54 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:54:54 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:54:54 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:54:54 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:54:54 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:54:54 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:54:54 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:54:54 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:54:54 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 23:55:13 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:55:13 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:55:26 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:55:26 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:55:27 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:55:27 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:55:27 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:55:27 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:55:27 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:55:27 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:55:27 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:55:27 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:55:27 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0
+2026-01-11 23:56:36 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:56:36 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:59:26 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:59:26 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:59:44 [info] : Server đang chạy tại http://localhost:3000
+2026-01-11 23:59:44 [info] : ✅ MySQL connected successfully to TiDB Cloud
+2026-01-11 23:59:48 [info] : Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:59:48 [info] : Dịch vụ: Lấy 3 featured films theo Loai: NEW
+2026-01-11 23:59:49 [info] : Lấy films theo Loai: CARTOON
+2026-01-11 23:59:49 [info] : Dịch vụ: Lấy films theo Loai: CARTOON
+2026-01-11 23:59:49 [info] : Lấy films theo Loai: SERIES
+2026-01-11 23:59:49 [info] : Dịch vụ: Lấy films theo Loai: SERIES
+2026-01-11 23:59:49 [info] : Lấy 6 featured films theo Loai: 6
+2026-01-11 23:59:49 [info] : Dịch vụ: Lấy 6 featured films theo Loai: 6
+2026-01-11 23:59:49 [info] : Lấy films theo Loai: MOVIE
+2026-01-11 23:59:49 [info] : Dịch vụ: Lấy films theo Loai: MOVIE
+2026-01-11 23:59:49 [info] : Home page - Hero: 3, Movies: 11, Series: 7, Cartoons: 7, Top: 0

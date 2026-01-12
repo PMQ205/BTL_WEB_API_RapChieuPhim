@@ -1,6 +1,8 @@
 import { lichChieu_Repo } from '../../repositories/LichChieu_repo.js'
 import { logger } from '../../config/logger.js'
 import { ApiError } from '../../utils/ApiError.js'
+import { giaoDichTmp_Repo } from '../../repositories/GiaoDichTmp_repo.js';
+import { ve_Repo } from '../../repositories/Ve_repo.js'
 
 export const lichChieu_Services = {
   getAll_Service: async () => {
@@ -88,4 +90,16 @@ export const lichChieu_Services = {
       throw error
     }
   },
+  getPendingSeats_Service: async (MaLich) => {
+    const seats = await giaoDichTmp_Repo.getPendingSeats_Repo(MaLich)
+    return seats
+  },
+
+  // 🔥 GHẾ KHÓA HIỂN THỊ — VE + PENDING
+  getAllLockedSeats_Service: async (MaLich) => {
+    const booked = await ve_Repo.getBookedSeats_Repo(MaLich)
+    const pending = await giaoDichTmp_Repo.getPendingSeats_Repo(MaLich)
+    return [...new Set([...booked, ...pending])]
+  },
+  
 }

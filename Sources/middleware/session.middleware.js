@@ -20,12 +20,45 @@ export function requireRole(roles = []) {
 }
 
 // Middleware để set user info vào locals (cho views)
-export function setUserLocals(req, res, next) {
-  if (req.session.user) {
-    res.locals.user = req.session.user
-    res.locals.isAuthenticated = true
-  } else {
-    res.locals.isAuthenticated = false
+// export function setUserLocals(req, res, next) {
+//   if (req.session.user) {
+//     res.locals.user = req.session.user
+//     res.locals.isAuthenticated = true
+//   } else {
+//     res.locals.isAuthenticated = false
+//   }
+//   next()
+// }
+
+
+// export const setUserLocals = (req, res, next) => {
+//   res.locals.isAuthenticated = !!req.user;
+//   res.locals.user = req.user || null;
+//   next();
+// };
+
+export const setUserLocals = (req, res, next) => {
+  // Nếu passport login (GG/GitHub)
+  if (req.user) {
+    res.locals.user = req.user;
+    res.locals.isAuthenticated = true;
+
+    // Đồng bộ vào session nếu chưa có (để code cũ vẫn chạy)
+    if (!req.session.user) {
+      req.session.user = req.user;
+    }
+    return next();
   }
-  next()
-}
+
+  // Nếu login thường bằng form
+  if (req.session && req.session.user) {
+    res.locals.user = req.session.user;
+    res.locals.isAuthenticated = true;
+    return next();
+  }
+
+  // Không login
+  res.locals.user = null;
+  res.locals.isAuthenticated = false;
+  next();
+};
