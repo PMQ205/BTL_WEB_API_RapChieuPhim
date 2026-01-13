@@ -1,0 +1,27 @@
+<%- include('partials/head') %>
+<link rel="stylesheet" href="/css/services.css" />
+<%- include('partials/nav') %>
+
+<div class="section">
+  <div class="container">
+    <h1 class="title-cart">🛒 GIỎ DỊCH VỤ</h1>
+
+    <div id="cart-container" class="cart-container"></div>
+
+    <div id="empty-cart" class="empty-cart">
+      <p>Chưa có dịch vụ nào trong giỏ.</p>
+      <a href="/services" class="btn-primary">Thêm Ngay</a>
+    </div>
+
+    <div id="cart-summary" class="cart-summary hidden">
+      <p>Tổng cộng: <span id="cart-total">0đ</span></p>
+      <a href="/services/checkout" class="btn-primary">TIẾP TỤC</a>
+
+      <button class="btn-danger wide" onclick="clearServiceCart()">XÓA GIỎ</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/services.js"></script>
+<%- include('partials/footer', { footerMenus: [] }) %>
+<%- include('partials/scripts') %>

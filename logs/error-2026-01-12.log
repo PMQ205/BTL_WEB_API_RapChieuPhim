@@ -248,3 +248,11 @@ Could not find the include file "partials/footer"
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async Object.createPaymentUrl_Service (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Services/Payment_services.js:23:7)
     at async createPaymentUrl (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/Controllers/Payment_Controller.js:18:22)
+2026-01-12 23:49:41 [error] : Error: getaddrinfo ENOTFOUND gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+    at PromisePool.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.removeExpired_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/GiaoDichTmp_repo.js:75:33)
+    at async Timeout._onTimeout (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/cron/clearExpiredSeats.js:6:21)
+2026-01-12 23:49:41 [error] : Error: getaddrinfo ENOTFOUND gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+    at PromisePool.query (E:\webAPI\BTL_API\BTL_WEB_API_RapChieuPhim\node_modules\mysql2\lib\promise\pool.js:36:22)
+    at Object.removeExpired_Repo (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/repositories/GiaoDichTmp_repo.js:75:33)
+    at async Timeout._onTimeout (file:///E:/webAPI/BTL_API/BTL_WEB_API_RapChieuPhim/Sources/cron/clearExpiredSeats.js:6:21)

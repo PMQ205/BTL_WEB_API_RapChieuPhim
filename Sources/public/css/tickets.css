@@ -1,0 +1,128 @@
+/* ====== TITLE ====== */
+.section-title{
+  text-align:center;
+  color:#ffce00;
+  font-size:1.8rem;
+  margin-bottom:1rem;
+}
+
+/* ====== TICKET CARD ====== */
+.ticket-card{
+  position: relative;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding:1.4rem 1.8rem;
+  margin-bottom:1.5rem;
+  border-radius:14px;
+  border:1px solid rgba(255,215,0,0.4);
+  background:linear-gradient(135deg, #2d2a1f 0%, #1d1a14 100%);
+  box-shadow:0 4px 18px rgba(0,0,0,0.4);
+  color:#fff;
+}
+
+/* Thanh vàng phía trên */
+.ticket-card:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:6px;
+  border-radius:14px 14px 0 0;
+  background:linear-gradient(to right,#ffda45,#ffe066,#ffd43b);
+}
+
+/* Vạch cắt vé */
+.ticket-card:after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:140px;
+  width:1px;
+  border-left:2px dashed rgba(255,255,255,0.2);
+}
+
+/* ====== POSTER ====== */
+.ticket-left{
+  width:120px;
+  margin-right:1rem;
+}
+.ticket-poster{
+  width:100%;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* ====== THÔNG TIN ====== */
+.ticket-info{
+  flex:1;
+  padding-left:1rem;
+}
+.ticket-info h3{
+  color:#ffd43b;
+  font-size:1.2rem;
+  margin-bottom:0.4rem;
+  font-weight:700;
+}
+.ticket-info p{
+  font-size:0.95rem;
+  margin-bottom:4px;
+  opacity:0.9;
+}
+.ticket-info strong{
+  color:#ffdd55;
+}
+
+/* ====== BUTTON ZONE ====== */
+.ticket-actions{
+  width:130px;
+}
+
+.ticket-btn{
+  width:100%;
+  padding:0.55rem;
+  font-size:0.9rem;
+  font-weight:700;
+  border-radius:8px;
+  cursor:pointer;
+  border:2px solid transparent;
+  transition:all .25s ease;
+  letter-spacing:0.5px;
+  margin-bottom:8px;
+}
+
+/* Pay */
+.ticket-pay{
+  background:#3b82f6;
+  color:white;
+  border-color:#3b82f6;
+}
+.ticket-pay:hover{
+  background:transparent;
+  color:#3b82f6;
+}
+
+/* Cancel */
+.ticket-cancel{
+  background:#a4161a;
+  color:#ff6b6b;
+  border-color:#a4161a;
+}
+.ticket-cancel:hover{
+  background:transparent;
+  color:#ff6b6b;
+}
+
+/* Active feedback */
+.ticket-btn:active{
+  transform:scale(.95);
+}
+
+/* Expire text */
+.expire{
+  color:#ffce00;
+  font-weight:600;
+}
+.ticket-card:after {
+  border-left:2px dashed rgba(255,255,255,0.3);
+}

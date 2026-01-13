@@ -1,6 +1,7 @@
 import { ve_Repo } from '../../repositories/Ve_repo.js'
 import { logger } from '../../config/logger.js'
 import { ApiError } from '../../utils/ApiError.js'
+import { payment_Repo } from '../../repositories/Payment_repo.js'
 
 export const ve_Services = {
   getAll_Service: async (MaKH = null) => {
@@ -63,4 +64,16 @@ export const ve_Services = {
       throw error
     }
   },
+  
+getTicketsWithServices_Service: async (MaKH) => {
+  const tickets = await ve_Repo.getAll_Service(MaKH);
+
+  for (const t of tickets) {
+    const payment = await payment_Repo.getPaymentByMaGD_Repo(t.MaGD);
+    const services = await payment_Repo.getServicesByMaGD_Repo(t.MaGD);
+    t.DichVu = services || [];
+  }
+
+  return tickets;
+}
 }

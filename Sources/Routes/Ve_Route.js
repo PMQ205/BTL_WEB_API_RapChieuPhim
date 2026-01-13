@@ -7,6 +7,7 @@ const router = express.Router()
 // Tất cả routes đều cần đăng nhập
 router.use(authenticate)
 
+// API REST
 router.get('/', ve_Controller.getAll)
 router.get('/:id', ve_Controller.getById)
 router.post('/', ve_Controller.create)

@@ -117,7 +117,7 @@ a.movie-item:hover {
 }
 
 .btn-hover::before {
-    z-index: 1;
+    z-index: 0;
     content: "";
     position: absolute;
     top: 0;
@@ -134,8 +134,10 @@ a.movie-item:hover {
 
 .btn i,
 .btn span {
-    z-index: 1;
+    position: relative;
+    z-index: 2;
 }
+
 
 .btn i {
     margin-right: 1rem;

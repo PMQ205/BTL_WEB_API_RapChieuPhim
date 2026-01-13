@@ -123,5 +123,47 @@ export const giaoDichTmp_Repo = {
     )
     return rows.map(r => r.GheNgoi)
   },
+  getPendingDetailedByUser_Repo: async (MaKH) => {
+    const db = await pool
+    const [rows] = await db.query(
+      `
+      SELECT 
+        tmp.GheNgoi,
+        tmp.HetHan,
+        tmp.MaGD,
+        lc.GioChieu,
+        p.TenPhong,
+        phim.TenPhim,
+        phim.Anh
+      FROM GIAODICH_TMP tmp
+      JOIN LICHCHIEU lc ON tmp.MaLich = lc.MaLich
+      JOIN PHONGCHIEU p ON lc.MaPhong = p.MaPhong
+      JOIN PHIM phim ON lc.MaPhim = phim.MaPhim
+      WHERE tmp.MaKH = ?
+        AND tmp.TrangThai = 'PENDING'
+        AND tmp.HetHan > NOW()
+      ORDER BY tmp.NgayTao DESC
+      `,
+      [MaKH]
+    )
+    return rows
+  },
+  getServicesByMaGD_Repo: async (MaGD) => {
+    const db = await pool;
+    const [rows] = await db.query(
+      `SELECT MaDV, SoLuong, Gia FROM GIAODICH_TMP_DV 
+       WHERE MaGD = ? AND TrangThai = 'PENDING'`,
+      [MaGD]
+    );
+    return rows;
+  },
+  
+  deleteServicesByMaGD_Repo: async (MaGD) => {
+    const db = await pool;
+    await db.query(`DELETE FROM GIAODICH_TMP_DV WHERE MaGD = ?`, [MaGD]);
+    return true;
+  },
+  
+  
   
 }

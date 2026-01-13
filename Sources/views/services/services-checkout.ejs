@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/services.css" />
+<%- include('../partials/nav') %>
+
+<div class="section">
+  <div class="container checkout-box">
+
+    <h1 class="checkout-title">💳 THANH TOÁN DỊCH VỤ</h1>
+
+    <div id="checkout-list" class="checkout-list">
+      <!-- JS sẽ load dịch vụ -->
+    </div>
+
+    <div class="checkout-total">
+      Tổng cộng: <span id="checkout-total">0đ</span>
+    </div>
+
+    <button class="btn-primary full" onclick="confirmServicePayment()">
+      THANH TOÁN NGAY
+    </button>
+
+    <a href="/services" class="btn-gray full">
+      ➜ Thêm dịch vụ khác
+    </a>
+  </div>
+</div>
+
+<script src="/js/services.js"></script>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>

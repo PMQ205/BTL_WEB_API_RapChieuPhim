@@ -43,3 +43,12 @@ async function deleteTicket(maVe) {
 function printTicket(maVe) {
   window.print()
 }
+async function payAgain(orderId) {
+  window.location.href = `/api/payment/pay-again/${orderId}`
+}
+
+async function cancelHold(orderId) {
+  if (!confirm('Bạn có chắc muốn hủy ghế?')) return
+  const res = await fetch(`/api/payment/cancel/${orderId}`, { method:'POST' })
+  location.reload()
+}

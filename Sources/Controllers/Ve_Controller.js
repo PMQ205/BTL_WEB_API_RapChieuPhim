@@ -40,7 +40,7 @@ export const ve_Controller = {
   create: async (req, res, next) => {
     try {
       if (!req.user) {
-        return res.status(401).json({ message: 'Chưa đăng nhập' })
+        return res.redirect('/login');
       }
 
       // DEBUG: log req.user để kiểm tra OAuth

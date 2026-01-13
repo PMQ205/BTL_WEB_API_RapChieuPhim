@@ -1,0 +1,32 @@
+<%- include('partials/head') %>
+<link rel="stylesheet" href="/css/services.css" />
+<%- include('partials/nav') %>
+
+<div class="section">
+  <div class="container">
+    <h1 style="text-align:center;color:var(--main-color);margin-bottom:2rem;">
+      🍿 DỊCH VỤ ĂN UỐNG
+    </h1>
+
+    <div class="services-grid">
+      <% services.forEach(dv => { %>
+      <div class="service-card"
+           data-id="<%= dv.MaDV %>"
+           data-name="<%= dv.TenDV %>"
+           data-price="<%= dv.Gia %>"
+           data-image="<%= dv.HinhAnh %>">
+    
+        <img src="<%= dv.HinhAnh %>" alt="<%= dv.TenDV %>">
+        <h3><%= dv.TenDV %></h3>
+        <p class="desc"><%= dv.MoTa %></p>
+        <span class="service-price"><%= dv.Gia.toLocaleString() %>đ</span>
+        <button class="add-service-btn">THÊM</button>
+      </div>
+      <% }) %>
+    </div>       
+  </div>
+</div>
+
+<%- include('partials/footer', { footerMenus: [] }) %>
+<script src="/js/services.js"></script>
+<%- include('partials/scripts') %>
