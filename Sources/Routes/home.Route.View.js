@@ -60,6 +60,8 @@ router.get('/', async (req, res) => {
   }
 })
 
+
+
 // Film detail page
 router.get('/film/:id', async (req, res) => {
   try {
@@ -160,6 +162,47 @@ router.get('/debug/films', async (req, res) => {
     res.status(500).json({ error: error.message })
   }
 })
+//Movies PAGE
+router.get('/movies', async (req, res) => {
+  try {
+    // Lấy đồng thời danh sách phim lẻ và phim hoạt hình
+    const [movieList, cartoonList] = await Promise.all([
+      film_Services.getFilmsByLoai_Service('MOVIE').catch(() => []),
+      film_Services.getFilmsByLoai_Service('CARTOON').catch(() => [])
+    ]);
+
+    // Gộp hai danh sách lại làm một
+    const allFilms = [...movieList, ...cartoonList];
+
+    res.render('movie-page', { 
+      moviesFilms: allFilms, // Gửi danh sách đã gộp vào view
+      title: 'Phim Lẻ & Hoạt Hình - FUTURE MOVIE' 
+    });
+  } catch (error) {
+    logger.error('Lỗi render movie-page:', error);
+    res.status(500).render('error', { message: 'Không thể tải danh sách phim' });
+  }
+});
+
+//SERIES page
+router.get('/series', async (req, res) => {
+  try {
+    // Gọi service lấy danh sách phim có Loai = 'SERIES' [cite: 936, 937]
+    const seriesFilms = await film_Services.getFilmsByLoai_Service('SERIES').catch((err) => {
+      logger.error('Lỗi lấy danh sách phim bộ:', err);
+      return [];
+    });
+
+    res.render('series-page', { 
+      seriesFilms: seriesFilms,
+      title: 'Phim Bộ - FUTURE MOVIE' 
+    });
+  } catch (error) {
+    logger.error('Lỗi render trang phim bộ:', error);
+    res.status(500).render('error', { message: 'Đã có lỗi xảy ra khi tải danh sách phim' });
+  }
+});
+
 
 // Auth routes
 router.get('/login', authController_View.showLogin)

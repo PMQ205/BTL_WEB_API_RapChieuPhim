@@ -78,10 +78,10 @@ export const authRepo = {
 
     const [result] = await db.query(
       `
-      INSERT INTO KHACHHANG (TenKH, Email, TenDangNhap, MatKhau, provider, provider_id, createdAt)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO KHACHHANG (TenKH, Email, TenDangNhap, MatKhau, provider, provider_id)
+      VALUES (?, ?, ?, ?, ?, ?)
       `,
-      [name, email || null, username, '', provider, providerId, new Date()]
+      [name, email || null, username, '', provider, providerId]
     );
 
     console.log('Created new OAuth user. insertId:', result.insertId); // DEBUG

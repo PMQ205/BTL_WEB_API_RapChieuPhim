@@ -11,8 +11,8 @@
       </a>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="/">Home</a></li>
-        <li><a href="/">Movies</a></li>
-        <li><a href="/">Series</a></li>
+        <li><a href="/movies">Movies</a></li>
+        <li><a href="/series">Series</a></li>
         <% if (typeof isAuthenticated !== 'undefined' && isAuthenticated && user) { %>
           <li><a href="/tickets">Vé của tôi</a></li>
           <% if (user.role === 1 || user.role === 2) { %>

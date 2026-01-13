@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<div class="section" style="padding-top: 80px; min-height: 80vh;">
+    <div class="container">
+        <div class="section-header">
+            Phim Bộ
+        </div>
+        
+        <div class="row">
+            <% if (typeof seriesFilms !== 'undefined' && seriesFilms.length > 0) { %>
+                <% seriesFilms.forEach((film) => { %>
+                    <div class="col-2 col-md-4 col-sm-6" style="margin-bottom: 30px;">
+                        <%- include('partials/movie-item', { film, isLink: true }) %>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="col-12">
+                    <p style="text-align: center; color: rgba(255,255,255,0.7); padding: 5rem;">
+                        Hiện tại chưa có phim bộ nào trong danh mục này[cite: 1011].
+                    </p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer', { footerMenus: [] }) %>
+<%- include('partials/scripts') %>
