@@ -1,0 +1,98 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+
+<div class="section" style="min-height: 80vh;">
+  <div class="container admin-layout">
+    <div class="admin-sidebar">
+      <h2>Quản lý phòng chiếu</h2>
+      <ul class="admin-menu">
+        <li><a href="/admin">Tổng quan</a></li>
+        <li><a href="/admin/staff">Phân quyền nhân viên</a></li>
+        <li><a href="/admin/movies">Quản lý phim</a></li>
+        <li><a href="/admin/rooms" class="active">Quản lý phòng chiếu</a></li>
+        <li><a href="/admin/showtimes">Quản lý lịch chiếu</a></li>
+        <li><a href="/admin/services">Quản lý dịch vụ</a></li>
+        <li><a href="/admin/tickets">Quản lý vé</a></li>
+        <li><a href="/admin/tmp-transactions">Giao dịch tạm</a></li>
+        <li><a href="/admin/reports">Báo cáo doanh thu</a></li>
+      </ul>
+    </div>
+
+    <div class="admin-content">
+      <h3>Danh sách phòng chiếu</h3>
+      <form method="GET" action="/admin/rooms" class="admin-form-grid" style="margin-bottom:1rem;">
+        <input type="text" name="search" placeholder="Tìm theo tên phòng" value="<%= typeof search !== 'undefined' ? search : '' %>">
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;max-width:200px;">Lọc</button>
+      </form>
+      <% if (error) { %>
+        <p style="color:#ff6b6b; margin-bottom:1rem;"><%= error %></p>
+      <% } %>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Mã</th>
+            <th>Tên phòng</th>
+            <th>Sức chứa</th>
+            <th>Mô tả</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rooms.forEach(r => { %>
+            <tr>
+              <td><%= r.MaPhong %></td>
+              <td><%= r.TenPhong %></td>
+              <td><%= r.SucChua %></td>
+              <td><%= r.MoTa || '-' %></td>
+              <td style="display:flex; gap:0.25rem;">
+                <a href="/admin/rooms/<%= r.MaPhong %>/edit" class="btn btn-sm">Sửa</a>
+                <form method="POST" action="/admin/rooms/<%= r.MaPhong %>/delete" onsubmit="return confirm('Xóa phòng chiếu này?');">
+                  <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:2rem;">Thêm phòng chiếu</h3>
+      <form method="POST" action="/admin/rooms/add" class="admin-form-grid">
+        <input type="text" name="TenPhong" placeholder="Tên phòng" required>
+        <input type="number" name="SucChua" placeholder="Sức chứa" required>
+        <textarea name="MoTa" placeholder="Mô tả" style="grid-column:1/-1; min-height:60px;"></textarea>
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Thêm phòng</button>
+      </form>
+
+      <% if (editRoom) { %>
+        <h3 style="margin-top:2rem;">Sửa phòng: <%= editRoom.TenPhong %></h3>
+        <form method="POST" action="/admin/rooms/<%= editRoom.MaPhong %>/update" class="admin-form-grid">
+          <input type="text" name="TenPhong" value="<%= editRoom.TenPhong %>" required>
+          <input type="number" name="SucChua" value="<%= editRoom.SucChua %>" required>
+          <textarea name="MoTa" style="grid-column:1/-1; min-height:60px;"><%= editRoom.MoTa || '' %></textarea>
+          <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Cập nhật phòng</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>
+
+<style>
+  .admin-layout { display:grid; grid-template-columns:260px 1fr; gap:2rem; }
+  .admin-sidebar { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-menu { list-style:none; padding:0; margin:0; }
+  .admin-menu li { margin-bottom:0.75rem; }
+  .admin-menu a { display:block; padding:0.5rem 0.75rem; border-radius:8px; color:#fff; text-decoration:none; background:rgba(255,255,255,0.05); }
+  .admin-menu a.active, .admin-menu a:hover { background:var(--main-color); }
+  .admin-content { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .admin-table th, .admin-table td { border-bottom:1px solid rgba(255,255,255,0.1); padding:0.5rem 0.75rem; }
+  .admin-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.75rem; margin-top:0.5rem; }
+  .admin-form-grid input, .admin-form-grid textarea { padding:0.4rem 0.6rem; border-radius:6px; border:none; outline:none; }
+  .btn-sm { padding:0.25rem 0.5rem; font-size:0.8rem; }
+  .btn-danger { background:#e53935; }
+  @media (max-width:768px){ .admin-layout{grid-template-columns:1fr;} }
+</style>
+

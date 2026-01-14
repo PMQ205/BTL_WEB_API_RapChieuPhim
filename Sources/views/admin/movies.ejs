@@ -1,0 +1,144 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+
+<div class="section" style="min-height: 80vh;">
+  <div class="container admin-layout">
+    <div class="admin-sidebar">
+      <h2>Quản lý phim</h2>
+      <ul class="admin-menu">
+        <li><a href="/admin">Tổng quan</a></li>
+        <li><a href="/admin/staff">Phân quyền nhân viên</a></li>
+        <li><a href="/admin/movies" class="active">Quản lý phim</a></li>
+        <li><a href="/admin/rooms">Quản lý phòng chiếu</a></li>
+        <li><a href="/admin/showtimes">Quản lý lịch chiếu</a></li>
+        <li><a href="/admin/services">Quản lý dịch vụ</a></li>
+        <li><a href="/admin/tickets">Quản lý vé</a></li>
+        <li><a href="/admin/tmp-transactions">Giao dịch tạm</a></li>
+        <li><a href="/admin/reports">Báo cáo doanh thu</a></li>
+      </ul>
+    </div>
+
+    <div class="admin-content">
+      <h3>Danh sách phim</h3>
+
+      <form method="GET" action="/admin/movies" class="admin-form-grid" style="margin-bottom:1rem;">
+        <input type="text" name="search" placeholder="Tìm theo tên phim" value="<%= typeof search !== 'undefined' ? search : '' %>">
+        <select name="type">
+          <option value="">-- Tất cả loại --</option>
+          <option value="MOVIE" <%= type === 'MOVIE' ? 'selected' : '' %>>Phim lẻ</option>
+          <option value="SERIES" <%= type === 'SERIES' ? 'selected' : '' %>>Series</option>
+          <option value="CARTOON" <%= type === 'CARTOON' ? 'selected' : '' %>>Hoạt hình</option>
+        </select>
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;max-width:200px;">Lọc</button>
+      </form>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Mã</th>
+            <th>Poster</th>
+            <th>Tên phim</th>
+            <th>Thể loại</th>
+            <th>Loại</th>
+            <th>Thời lượng</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% films.forEach(f => { %>
+            <tr>
+              <td><%= f.MaPhim %></td>
+              <td>
+                <% if (f.Anh) { %>
+                  <img src="<%= f.Anh %>" alt="poster" style="width: 60px; border-radius: 4px;">
+                <% } %>
+              </td>
+              <td><%= f.TenPhim %></td>
+              <td><%= f.TheLoai || '-' %></td>
+              <td><%= f.Loai %></td>
+              <td><%= f.ThoiLuong || '-' %></td>
+              <td style="display:flex; gap:0.25rem;">
+                <a href="/admin/movies/<%= f.MaPhim %>/edit" class="btn btn-sm">Sửa</a>
+                <form method="POST" action="/admin/movies/<%= f.MaPhim %>/delete" onsubmit="return confirm('Xóa phim này?');">
+                  <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <% if (typeof total !== 'undefined' && total > pageSize) { 
+           const totalPages = Math.ceil(total / pageSize);
+      %>
+        <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <% for (let p = 1; p <= totalPages; p++) { %>
+            <a href="/admin/movies?page=<%= p %>&search=<%= encodeURIComponent(search || '') %>&type=<%= type || '' %>"
+               class="btn btn-sm" style="<%= p === page ? 'background:var(--main-color);' : '' %>">
+              <%= p %>
+            </a>
+          <% } %>
+        </div>
+      <% } %>
+
+      <h3 style="margin-top:2rem;">Thêm phim mới</h3>
+      <form method="POST" action="/admin/movies/add" class="admin-form-grid">
+        <input type="text" name="TenPhim" placeholder="Tên phim" required>
+        <input type="text" name="TheLoai" placeholder="Thể loại">
+        <input type="number" name="ThoiLuong" placeholder="Thời lượng (phút)">
+        <select name="Loai">
+          <option value="MOVIE">Phim lẻ</option>
+          <option value="SERIES">Series</option>
+          <option value="CARTOON">Hoạt hình</option>
+        </select>
+        <input type="text" name="DaoDien" placeholder="Đạo diễn">
+        <input type="text" name="DienVien" placeholder="Diễn viên">
+        <input type="text" name="Anh" placeholder="URL ảnh poster">
+        <input type="text" name="Trailer" placeholder="URL trailer">
+        <textarea name="TomTat" placeholder="Tóm tắt nội dung" style="grid-column:1/-1; min-height:80px;"></textarea>
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Thêm phim</button>
+      </form>
+
+      <% if (editFilm) { %>
+        <h3 style="margin-top:2rem;">Sửa phim: <%= editFilm.TenPhim %></h3>
+        <form method="POST" action="/admin/movies/<%= editFilm.MaPhim %>/update" class="admin-form-grid">
+          <input type="text" name="TenPhim" value="<%= editFilm.TenPhim %>" required>
+          <input type="text" name="TheLoai" value="<%= editFilm.TheLoai || '' %>">
+          <input type="number" name="ThoiLuong" value="<%= editFilm.ThoiLuong || '' %>" placeholder="Thời lượng (phút)">
+          <select name="Loai">
+            <option value="MOVIE" <%= editFilm.Loai === 'MOVIE' ? 'selected' : '' %>>Phim lẻ</option>
+            <option value="SERIES" <%= editFilm.Loai === 'SERIES' ? 'selected' : '' %>>Series</option>
+            <option value="CARTOON" <%= editFilm.Loai === 'CARTOON' ? 'selected' : '' %>>Hoạt hình</option>
+          </select>
+          <input type="text" name="DaoDien" value="<%= editFilm.DaoDien || '' %>" placeholder="Đạo diễn">
+          <input type="text" name="DienVien" value="<%= editFilm.DienVien || '' %>" placeholder="Diễn viên">
+          <input type="text" name="Anh" value="<%= editFilm.Anh || '' %>" placeholder="URL ảnh poster">
+          <input type="text" name="Trailer" value="<%= editFilm.Trailer || '' %>" placeholder="URL trailer">
+          <textarea name="TomTat" style="grid-column:1/-1; min-height:80px;"><%= editFilm.TomTat || '' %></textarea>
+          <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Cập nhật phim</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>
+
+<style>
+  .admin-layout { display:grid; grid-template-columns:260px 1fr; gap:2rem; }
+  .admin-sidebar { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-menu { list-style:none; padding:0; margin:0; }
+  .admin-menu li { margin-bottom:0.75rem; }
+  .admin-menu a { display:block; padding:0.5rem 0.75rem; border-radius:8px; color:#fff; text-decoration:none; background:rgba(255,255,255,0.05); }
+  .admin-menu a.active, .admin-menu a:hover { background:var(--main-color); }
+  .admin-content { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .admin-table th, .admin-table td { border-bottom:1px solid rgba(255,255,255,0.1); padding:0.5rem 0.75rem; }
+  .admin-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.75rem; margin-top:0.5rem; }
+  .admin-form-grid input, .admin-form-grid select, .admin-form-grid textarea { padding:0.4rem 0.6rem; border-radius:6px; border:none; outline:none; }
+  .btn-sm { padding:0.25rem 0.5rem; font-size:0.8rem; }
+  .btn-danger { background:#e53935; }
+  @media (max-width:768px){ .admin-layout{grid-template-columns:1fr;} }
+</style>
+

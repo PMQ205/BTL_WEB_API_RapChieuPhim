@@ -1,0 +1,109 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+
+<div class="section" style="min-height: 80vh;">
+  <div class="container admin-layout">
+    <div class="admin-sidebar">
+      <h2>Quản trị hệ thống</h2>
+      <ul class="admin-menu">
+        <% const perms = userPermissions || []; %>
+
+        <% if (user.role === 1 || perms.includes('USER_MANAGE')) { %>
+          <li><a href="/admin/staff">Phân quyền nhân viên</a></li>
+        <% } %>
+
+        <% if (user.role === 1 || perms.includes('MOVIE_MANAGE')) { %>
+          <li><a href="/admin/movies">Quản lý phim</a></li>
+        <% } %>
+
+        <% if (user.role === 1 || perms.includes('ROOM_MANAGE')) { %>
+          <li><a href="/admin/rooms">Quản lý phòng chiếu</a></li>
+        <% } %>
+
+        <% if (user.role === 1 || perms.includes('SHOWTIME_MANAGE')) { %>
+          <li><a href="/admin/showtimes">Quản lý lịch chiếu</a></li>
+        <% } %>
+
+        <% if (user.role === 1 || perms.includes('SERVICE_MANAGE')) { %>
+          <li><a href="/admin/services">Quản lý dịch vụ</a></li>
+        <% } %>
+
+        <% if (user.role === 1 || perms.includes('TICKET_VIEW')) { %>
+          <li><a href="/admin/tickets">Quản lý vé</a></li>
+        <% } %>
+
+        <% if (user.role === 1 || perms.includes('TMP_TRANSACTION_VIEW')) { %>
+          <li><a href="/admin/tmp-transactions">Quản lý giao dịch tạm</a></li>
+        <% } %>
+
+        <% if (user.role === 1 || perms.includes('REPORT_VIEW')) { %>
+          <li><a href="/admin/reports">Báo cáo doanh thu</a></li>
+        <% } %>
+      </ul>
+    </div>
+
+    <div class="admin-content">
+      <h3>Xin chào, <%= user.name || user.username %></h3>
+      <% if (!perms.length && user.role !== 1) { %>
+        <p style="margin-top: 1rem; color: rgba(255,255,255,0.8);">
+          Bạn chưa được cấp quyền quản trị nào, hãy liên hệ Admin.
+        </p>
+      <% } else { %>
+        <p style="margin-top: 1rem; color: rgba(255,255,255,0.8);">
+          Hãy chọn chức năng ở menu bên trái.
+        </p>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>
+
+<style>
+  .admin-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2rem;
+  }
+  .admin-sidebar {
+    background: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  .admin-sidebar h2 {
+    margin-bottom: 1rem;
+    color: var(--main-color);
+  }
+  .admin-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .admin-menu li {
+    margin-bottom: 0.75rem;
+  }
+  .admin-menu a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.05);
+    transition: all 0.2s;
+  }
+  .admin-menu a:hover {
+    background: var(--main-color);
+    transform: translateX(4px);
+  }
+  .admin-content {
+    background: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  @media (max-width: 768px) {
+    .admin-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

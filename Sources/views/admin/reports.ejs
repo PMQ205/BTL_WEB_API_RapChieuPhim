@@ -1,0 +1,82 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+
+<div class="section" style="min-height: 80vh;">
+  <div class="container admin-layout">
+    <div class="admin-sidebar">
+      <h2>Báo cáo doanh thu</h2>
+      <ul class="admin-menu">
+        <li><a href="/admin">Tổng quan</a></li>
+        <li><a href="/admin/staff">Phân quyền nhân viên</a></li>
+        <li><a href="/admin/movies">Quản lý phim</a></li>
+        <li><a href="/admin/rooms">Quản lý phòng chiếu</a></li>
+        <li><a href="/admin/showtimes">Quản lý lịch chiếu</a></li>
+        <li><a href="/admin/services">Quản lý dịch vụ</a></li>
+        <li><a href="/admin/tickets">Quản lý vé</a></li>
+        <li><a href="/admin/tmp-transactions">Giao dịch tạm</a></li>
+        <li><a href="/admin/reports" class="active">Báo cáo doanh thu</a></li>
+      </ul>
+    </div>
+
+    <div class="admin-content">
+      <h3>Doanh thu theo ngày</h3>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Ngày</th>
+            <th>Số giao dịch</th>
+            <th>Tổng tiền</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% byDate.forEach(r => { %>
+            <tr>
+              <td><%= r.Ngay %></td>
+              <td><%= r.SoGD %></td>
+              <td><%= r.TongTien %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:2rem;">Top phim theo doanh thu</h3>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Mã phim</th>
+            <th>Tên phim</th>
+            <th>Số vé</th>
+            <th>Doanh thu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% byFilm.forEach(f => { %>
+            <tr>
+              <td><%= f.MaPhim %></td>
+              <td><%= f.TenPhim %></td>
+              <td><%= f.SoVe %></td>
+              <td><%= f.DoanhThu %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>
+
+<style>
+  .admin-layout { display:grid; grid-template-columns:260px 1fr; gap:2rem; }
+  .admin-sidebar { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-menu { list-style:none; padding:0; margin:0; }
+  .admin-menu li { margin-bottom:0.75rem; }
+  .admin-menu a { display:block; padding:0.5rem 0.75rem; border-radius:8px; color:#fff; text-decoration:none; background:rgba(255,255,255,0.05); }
+  .admin-menu a.active, .admin-menu a:hover { background:var(--main-color); }
+  .admin-content { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .admin-table th, .admin-table td { border-bottom:1px solid rgba(255,255,255,0.1); padding:0.5rem 0.75rem; }
+  @media (max-width:768px){ .admin-layout{grid-template-columns:1fr;} }
+</style>
+

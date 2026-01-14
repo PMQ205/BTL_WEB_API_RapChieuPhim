@@ -1,0 +1,132 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+
+<div class="section" style="min-height: 80vh;">
+  <div class="container admin-layout">
+    <div class="admin-sidebar">
+      <h2>Quản lý lịch chiếu</h2>
+      <ul class="admin-menu">
+        <li><a href="/admin">Tổng quan</a></li>
+        <li><a href="/admin/staff">Phân quyền nhân viên</a></li>
+        <li><a href="/admin/movies">Quản lý phim</a></li>
+        <li><a href="/admin/rooms">Quản lý phòng chiếu</a></li>
+        <li><a href="/admin/showtimes" class="active">Quản lý lịch chiếu</a></li>
+        <li><a href="/admin/services">Quản lý dịch vụ</a></li>
+        <li><a href="/admin/tickets">Quản lý vé</a></li>
+        <li><a href="/admin/tmp-transactions">Giao dịch tạm</a></li>
+        <li><a href="/admin/reports">Báo cáo doanh thu</a></li>
+      </ul>
+    </div>
+
+    <div class="admin-content">
+      <h3>Danh sách lịch chiếu</h3>
+      <form method="GET" action="/admin/showtimes" class="admin-form-grid" style="margin-bottom:1rem;">
+        <select name="filmId">
+          <option value="">-- Tất cả phim --</option>
+          <% films.forEach(f => { %>
+            <option value="<%= f.MaPhim %>" <%= filmId === f.MaPhim ? 'selected' : '' %>><%= f.TenPhim %></option>
+          <% }) %>
+        </select>
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;max-width:200px;">Lọc</button>
+      </form>
+      <% if (error) { %>
+        <p style="color:#ff6b6b; margin-bottom:1rem;"><%= error %></p>
+      <% } %>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Mã</th>
+            <th>Phim</th>
+            <th>Phòng</th>
+            <th>Giờ chiếu</th>
+            <th>Giá vé</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% showtimes.forEach(s => { %>
+            <tr>
+              <td><%= s.MaLich %></td>
+              <td><%= s.TenPhim %></td>
+              <td><%= s.TenPhong %></td>
+              <td><%= s.GioChieu %></td>
+              <td><%= s.GiaVe %></td>
+              <td><%= s.TrangThai %></td>
+              <td style="display:flex; gap:0.25rem;">
+                <a href="/admin/showtimes/<%= s.MaLich %>/edit" class="btn btn-sm">Sửa</a>
+                <form method="POST" action="/admin/showtimes/<%= s.MaLich %>/delete" onsubmit="return confirm('Xóa lịch chiếu này?');">
+                  <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:2rem;">Thêm lịch chiếu</h3>
+      <form method="POST" action="/admin/showtimes/add" class="admin-form-grid">
+        <select name="MaPhim" required>
+          <option value="">-- Chọn phim --</option>
+          <% films.forEach(f => { %>
+            <option value="<%= f.MaPhim %>"><%= f.TenPhim %></option>
+          <% }) %>
+        </select>
+        <select name="MaPhong" required>
+          <option value="">-- Chọn phòng --</option>
+          <% rooms.forEach(r => { %>
+            <option value="<%= r.MaPhong %>"><%= r.TenPhong %> (SC: <%= r.SucChua %>)</option>
+          <% }) %>
+        </select>
+        <input type="datetime-local" name="GioChieu" required>
+        <input type="number" name="GiaVe" placeholder="Giá vé" required>
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Thêm lịch chiếu</button>
+      </form>
+
+      <% if (editShowtime) { %>
+        <h3 style="margin-top:2rem;">Sửa lịch chiếu #<%= editShowtime.MaLich %></h3>
+        <form method="POST" action="/admin/showtimes/<%= editShowtime.MaLich %>/update" class="admin-form-grid">
+          <select name="MaPhim" required>
+            <% films.forEach(f => { %>
+              <option value="<%= f.MaPhim %>" <%= f.MaPhim === editShowtime.MaPhim ? 'selected' : '' %>><%= f.TenPhim %></option>
+            <% }) %>
+          </select>
+          <select name="MaPhong" required>
+            <% rooms.forEach(r => { %>
+              <option value="<%= r.MaPhong %>" <%= r.MaPhong === editShowtime.MaPhong ? 'selected' : '' %>><%= r.TenPhong %></option>
+            <% }) %>
+          </select>
+          <input type="datetime-local" name="GioChieu" value="<%= editShowtime.GioChieu.toISOString ? editShowtime.GioChieu.toISOString().slice(0,16) : '' %>" required>
+          <input type="number" name="GiaVe" value="<%= editShowtime.GiaVe %>" required>
+          <select name="TrangThai">
+            <option value="ACTIVE" <%= editShowtime.TrangThai === 'ACTIVE' ? 'selected' : '' %>>ACTIVE</option>
+            <option value="CANCELLED" <%= editShowtime.TrangThai === 'CANCELLED' ? 'selected' : '' %>>CANCELLED</option>
+            <option value="COMPLETED" <%= editShowtime.TrangThai === 'COMPLETED' ? 'selected' : '' %>>COMPLETED</option>
+          </select>
+          <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Cập nhật lịch chiếu</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>
+
+<style>
+  .admin-layout { display:grid; grid-template-columns:260px 1fr; gap:2rem; }
+  .admin-sidebar { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-menu { list-style:none; padding:0; margin:0; }
+  .admin-menu li { margin-bottom:0.75rem; }
+  .admin-menu a { display:block; padding:0.5rem 0.75rem; border-radius:8px; color:#fff; text-decoration:none; background:rgba(255,255,255,0.05); }
+  .admin-menu a.active, .admin-menu a:hover { background:var(--main-color); }
+  .admin-content { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .admin-table th, .admin-table td { border-bottom:1px solid rgba(255,255,255,0.1); padding:0.5rem 0.75rem; }
+  .admin-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.75rem; margin-top:0.5rem; }
+  .admin-form-grid input, .admin-form-grid select { padding:0.4rem 0.6rem; border-radius:6px; border:none; outline:none; }
+  .btn-sm { padding:0.25rem 0.5rem; font-size:0.8rem; }
+  .btn-danger { background:#e53935; }
+  @media (max-width:768px){ .admin-layout{grid-template-columns:1fr;} }
+</style>
+

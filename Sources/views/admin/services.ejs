@@ -1,0 +1,108 @@
+<%- include('../partials/head') %>
+<%- include('../partials/nav') %>
+
+<div class="section" style="min-height: 80vh;">
+  <div class="container admin-layout">
+    <div class="admin-sidebar">
+      <h2>Quản lý dịch vụ</h2>
+      <ul class="admin-menu">
+        <li><a href="/admin">Tổng quan</a></li>
+        <li><a href="/admin/staff">Phân quyền nhân viên</a></li>
+        <li><a href="/admin/movies">Quản lý phim</a></li>
+        <li><a href="/admin/rooms">Quản lý phòng chiếu</a></li>
+        <li><a href="/admin/showtimes">Quản lý lịch chiếu</a></li>
+        <li><a href="/admin/services" class="active">Quản lý dịch vụ</a></li>
+        <li><a href="/admin/tickets">Quản lý vé</a></li>
+        <li><a href="/admin/tmp-transactions">Giao dịch tạm</a></li>
+        <li><a href="/admin/reports">Báo cáo doanh thu</a></li>
+      </ul>
+    </div>
+
+    <div class="admin-content">
+      <h3>Danh sách dịch vụ</h3>
+      <% if (error) { %>
+        <p style="color:#ff6b6b; margin-bottom:1rem;"><%= error %></p>
+      <% } %>
+      <form method="GET" action="/admin/services" class="admin-form-grid" style="margin-bottom:1rem;">
+        <input type="text" name="search" placeholder="Tìm theo tên dịch vụ" value="<%= typeof search !== 'undefined' ? search : '' %>">
+        <select name="status">
+          <option value="">-- Tất cả trạng thái --</option>
+          <option value="1" <%= status === '1' ? 'selected' : '' %>>Đang bán</option>
+          <option value="0" <%= status === '0' ? 'selected' : '' %>>Ngừng bán</option>
+        </select>
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;max-width:200px;">Lọc</button>
+      </form>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Mã</th>
+            <th>Tên dịch vụ</th>
+            <th>Giá</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% services.forEach(s => { %>
+            <tr>
+              <td><%= s.MaDV %></td>
+              <td><%= s.TenDV %></td>
+              <td><%= s.Gia %></td>
+              <td><%= s.TrangThai === 1 ? 'Đang bán' : 'Ngừng bán' %></td>
+              <td style="display:flex; gap:0.25rem;">
+                <a href="/admin/services/<%= s.MaDV %>/edit" class="btn btn-sm">Sửa</a>
+                <form method="POST" action="/admin/services/<%= s.MaDV %>/toggle">
+                  <button type="submit" class="btn btn-sm"><%= s.TrangThai === 1 ? 'Ngừng bán' : 'Bán lại' %></button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:2rem;">Thêm dịch vụ</h3>
+      <form method="POST" action="/admin/services/add" class="admin-form-grid">
+        <input type="text" name="TenDV" placeholder="Tên dịch vụ" required>
+        <input type="number" name="Gia" placeholder="Giá" required>
+        <input type="text" name="HinhAnh" placeholder="URL hình ảnh">
+        <textarea name="MoTa" placeholder="Mô tả" style="grid-column:1/-1; min-height:60px;"></textarea>
+        <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Thêm dịch vụ</button>
+      </form>
+
+      <% if (editService) { %>
+        <h3 style="margin-top:2rem;">Sửa dịch vụ: <%= editService.TenDV %></h3>
+        <form method="POST" action="/admin/services/<%= editService.MaDV %>/update" class="admin-form-grid">
+          <input type="text" name="TenDV" value="<%= editService.TenDV %>" required>
+          <input type="number" name="Gia" value="<%= editService.Gia %>" required>
+          <input type="text" name="HinhAnh" value="<%= editService.HinhAnh || '' %>">
+          <textarea name="MoTa" style="grid-column:1/-1; min-height:60px;"><%= editService.MoTa || '' %></textarea>
+          <select name="TrangThai" style="grid-column:1/-1; max-width:200px;">
+            <option value="1" <%= editService.TrangThai === 1 ? 'selected' : '' %>>Đang bán</option>
+            <option value="0" <%= editService.TrangThai === 0 ? 'selected' : '' %>>Ngừng bán</option>
+          </select>
+          <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Cập nhật dịch vụ</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer', { footerMenus: [] }) %>
+<%- include('../partials/scripts') %>
+
+<style>
+  .admin-layout { display:grid; grid-template-columns:260px 1fr; gap:2rem; }
+  .admin-sidebar { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-menu { list-style:none; padding:0; margin:0; }
+  .admin-menu li { margin-bottom:0.75rem; }
+  .admin-menu a { display:block; padding:0.5rem 0.75rem; border-radius:8px; color:#fff; text-decoration:none; background:rgba(255,255,255,0.05); }
+  .admin-menu a.active, .admin-menu a:hover { background:var(--main-color); }
+  .admin-content { background:rgba(0,0,0,0.6); padding:1.5rem; border-radius:12px; }
+  .admin-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .admin-table th, .admin-table td { border-bottom:1px solid rgba(255,255,255,0.1); padding:0.5rem 0.75rem; }
+  .admin-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.75rem; margin-top:0.5rem; }
+  .admin-form-grid input, .admin-form-grid textarea { padding:0.4rem 0.6rem; border-radius:6px; border:none; outline:none; }
+  .btn-sm { padding:0.25rem 0.5rem; font-size:0.8rem; }
+  @media (max-width:768px){ .admin-layout{grid-template-columns:1fr;} }
+</style>
+

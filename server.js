@@ -35,6 +35,8 @@ import { errorHandler } from './Sources/middleware/error.middleware.js'
 // Payment view controller
 import { payment_Controller } from './Sources/Controllers/Payment_Controller.js'
 
+import Admin_Router from './Sources/Routes/Admin_Route.js';
+
 // Cron job
 import './Sources/cron/clearExpiredSeats.js'
 
@@ -119,6 +121,8 @@ app.get('/payment-failed', payment_Controller.paymentFailedPage)
 app.get('/payment-booking', (req, res) => {
   res.render('payment-booking')
 })
+// admin
+app.use('/admin', Admin_Router);
 
 // Home + movies UI
 app.use('/', homeRoute)
