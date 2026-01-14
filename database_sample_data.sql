@@ -26,21 +26,21 @@ AND TenPhim IN ('Bat-man', 'Blood-shot', 'Call', 'Captain Marvel', 'End-game', '
 
 -- Thêm một số phim mới (nếu chưa có)
 INSERT IGNORE INTO PHIM (TenPhim, TheLoai, TomTat, Trailer, ThoiLuong, DaoDien, DienVien, Anh, Loai) VALUES
-('Black Panther', 'Hành động, Viễn tưởng', 'Vua của Wakanda đối đầu với thử thách mới', 'https://youtube.com/blackpanther', 134, 'Ryan Coogler', 'Chadwick Boseman', '/images/black-banner.png', 'MOVIE'),
-('John Wick', 'Hành động', 'Sát thủ nghỉ hưu trả thù kẻ đã giết chó của mình', 'https://youtube.com/johnwick', 101, 'Chad Stahelski', 'Keanu Reeves', '/images/John wick.jpg', 'MOVIE'),
-('Guardians of the Galaxy Vol 3', 'Hành động, Hài', 'Cuộc phiêu lưu cuối cùng của nhóm Guardians', 'https://youtube.com/gotg3', 150, 'James Gunn', 'Chris Pratt', '/images/GATG vol3.jpeg', 'MOVIE');
+('Black Panther', 'Hành động, Viễn tưởng', 'Vua của Wakanda đối đầu với thử thách mới', '/videos/blackpanther.mp4', 134, 'Ryan Coogler', 'Chadwick Boseman', '/images/black-banner.png', 'MOVIE'),
+('John Wick', 'Hành động', 'Sát thủ nghỉ hưu trả thù kẻ đã giết chó của mình', '/videos/johnwick.mp4', 101, 'Chad Stahelski', 'Keanu Reeves', '/images/John wick.jpg', 'MOVIE'),
+('Guardians of the Galaxy Vol 3', 'Hành động, Hài', 'Cuộc phiêu lưu cuối cùng của nhóm Guardians', '/videos/gotg3.mp4', 150, 'James Gunn', 'Chris Pratt', '/images/GATG vol3.jpeg', 'MOVIE');
 
 -- Thêm Series
 INSERT IGNORE INTO PHIM (TenPhim, TheLoai, TomTat, Trailer, ThoiLuong, DaoDien, DienVien, Anh, Loai) VALUES
-('Supergirl', 'Hành động, Siêu anh hùng', 'Siêu cô gái bảo vệ Trái Đất', 'https://youtube.com/supergirl', 45, 'Greg Berlanti', 'Melissa Benoist', '/images/series/supergirl.jpg', 'SERIES'),
-('Stranger Things', 'Khoa học viễn tưởng, Kinh dị', 'Những bí ẩn tại thị trấn nhỏ', 'https://youtube.com/strangerthings', 50, 'Duffer Brothers', 'Millie Bobby Brown', '/images/series/stranger-thing.jpg', 'SERIES'),
-('Wanda Vision', 'Siêu anh hùng, Khoa học viễn tưởng', 'Wanda và Vision trong thực tế kỳ lạ', 'https://youtube.com/wandavision', 45, 'Matt Shakman', 'Elizabeth Olsen', '/images/series/wanda.png', 'SERIES');
+('Supergirl', 'Hành động, Siêu anh hùng', 'Siêu cô gái bảo vệ Trái Đất', '/videos/supergirl.mp4', 45, 'Greg Berlanti', 'Melissa Benoist', '/images/series/supergirl.jpg', 'SERIES'),
+('Stranger Things', 'Khoa học viễn tưởng, Kinh dị', 'Những bí ẩn tại thị trấn nhỏ', '/videos/strangerthings.mp4', 50, 'Duffer Brothers', 'Millie Bobby Brown', '/images/series/stranger-thing.jpg', 'SERIES'),
+('Wanda Vision', 'Siêu anh hùng, Khoa học viễn tưởng', 'Wanda và Vision trong thực tế kỳ lạ', '/videos/wandavision.mp4', 45, 'Matt Shakman', 'Elizabeth Olsen', '/images/series/wanda.png', 'SERIES');
 
 -- Thêm Cartoons
 INSERT IGNORE INTO PHIM (TenPhim, TheLoai, TomTat, Trailer, ThoiLuong, DaoDien, DienVien, Anh, Loai) VALUES
-('Demon Slayer', 'Anime, Hành động', 'Thanh niên trở thành thợ săn quỷ', 'https://youtube.com/demonslayer', 24, 'Haruo Sotozaki', 'Natsuki Hanae', '/images/cartoons/demon-slayer.jpg', 'CARTOON'),
-('Your Name', 'Anime, Lãng mạn', 'Hai người lạ đổi thân cho nhau', 'https://youtube.com/yourname', 106, 'Makoto Shinkai', 'Ryunosuke Kamiki', '/images/cartoons/your-name.jpg', 'CARTOON'),
-('Coco', 'Hoạt hình, Gia đình', 'Cậu bé khám phá thế giới của tổ tiên', 'https://youtube.com/coco', 105, 'Lee Unkrich', 'Anthony Gonzalez', '/images/cartoons/coco.jpg', 'CARTOON');
+('Demon Slayer', 'Anime, Hành động', 'Thanh niên trở thành thợ săn quỷ', '/videos/demonslayer.mp4', 24, 'Haruo Sotozaki', 'Natsuki Hanae', '/images/cartoons/demon-slayer.jpg', 'CARTOON'),
+('Your Name', 'Anime, Lãng mạn', 'Hai người lạ đổi thân cho nhau', '/videos/yourname.mp4', 106, 'Makoto Shinkai', 'Ryunosuke Kamiki', '/images/cartoons/your-name.jpg', 'CARTOON'),
+('Coco', 'Hoạt hình, Gia đình', 'Cậu bé khám phá thế giới của tổ tiên', '/videos/coco.mp4', 105, 'Lee Unkrich', 'Anthony Gonzalez', '/images/cartoons/coco.jpg', 'CARTOON');
 
 -- Thêm lịch chiếu mẫu
 INSERT IGNORE INTO LICHCHIEU (MaPhim, MaPhong, GioChieu, GiaVe)

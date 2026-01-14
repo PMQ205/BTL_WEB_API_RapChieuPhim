@@ -24,7 +24,6 @@ export const create_Films_Validator = z.object({
     .trim()
     .regex(/^[^<>]*$/, "Không được chứa ký tự < >")
     .max(255)
-    .url({ message: "Trailer phải là URL hợp lệ" })
     .optional(),
 
   ThoiLuong: z.coerce.number()

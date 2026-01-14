@@ -94,7 +94,7 @@
         <input type="text" name="DaoDien" placeholder="Đạo diễn">
         <input type="text" name="DienVien" placeholder="Diễn viên">
         <input type="text" name="Anh" placeholder="URL ảnh poster">
-        <input type="text" name="Trailer" placeholder="URL trailer">
+        <input type="text" name="Trailer" placeholder="Đường dẫn video trailer (vd: /videos/trailer.mp4)">
         <textarea name="TomTat" placeholder="Tóm tắt nội dung" style="grid-column:1/-1; min-height:80px;"></textarea>
         <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Thêm phim</button>
       </form>
@@ -113,7 +113,7 @@
           <input type="text" name="DaoDien" value="<%= editFilm.DaoDien || '' %>" placeholder="Đạo diễn">
           <input type="text" name="DienVien" value="<%= editFilm.DienVien || '' %>" placeholder="Diễn viên">
           <input type="text" name="Anh" value="<%= editFilm.Anh || '' %>" placeholder="URL ảnh poster">
-          <input type="text" name="Trailer" value="<%= editFilm.Trailer || '' %>" placeholder="URL trailer">
+          <input type="text" name="Trailer" value="<%= editFilm.Trailer || '' %>" placeholder="Đường dẫn video trailer (vd: /videos/trailer.mp4)">
           <textarea name="TomTat" style="grid-column:1/-1; min-height:80px;"><%= editFilm.TomTat || '' %></textarea>
           <button type="submit" class="btn btn-hover" style="grid-column:1/-1;">Cập nhật phim</button>
         </form>

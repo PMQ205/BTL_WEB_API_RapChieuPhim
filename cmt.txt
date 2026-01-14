@@ -125,7 +125,7 @@ Body:
 "TenPhim": "Avengers: Endgame",
 "TheLoai": "Hành động, Viễn tưởng",
 "TomTat": "Trận chiến cuối cùng với Thanos.",
-"Trailer": "https://youtube.com/trailer
+"Trailer": "/videos/trailer.mp4
 ",
 "ThoiLuong": 180,
 "DaoDien": "Anthony Russo",

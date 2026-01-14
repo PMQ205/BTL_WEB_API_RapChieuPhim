@@ -31,7 +31,6 @@ export const update_Films = z.object({
     .trim()
     .regex(/^[^<>]*$/, "Không được chứa ký tự < >")
     .max(255)
-    .url("Trailer phải là URL hợp lệ")
     .optional(),
 
   ThoiLuong: z.coerce.number()

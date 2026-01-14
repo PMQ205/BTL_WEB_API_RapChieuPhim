@@ -273,4 +273,30 @@ const footerMenus = [
 %>
 <%- include('partials/footer', { footerMenus }) %>
 
+<!-- Trailer Modal -->
+<div id="trailer-modal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);">
+    <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <video id="trailer-video" controls style="max-width: 90%; max-height: 90%;"></video>
+        <button onclick="closeTrailerModal()" style="position: absolute; top: 20px; right: 20px; background: #ff0000; color: white; border: none; padding: 10px; cursor: pointer; font-size: 18px;">&times;</button>
+    </div>
+</div>
+
+<script>
+function openTrailerModal(videoSrc) {
+    const modal = document.getElementById('trailer-modal');
+    const video = document.getElementById('trailer-video');
+    video.src = videoSrc;
+    modal.style.display = 'block';
+    video.play();
+}
+
+function closeTrailerModal() {
+    const modal = document.getElementById('trailer-modal');
+    const video = document.getElementById('trailer-video');
+    modal.style.display = 'none';
+    video.pause();
+    video.src = '';
+}
+</script>
+
 <%- include('partials/scripts') %>

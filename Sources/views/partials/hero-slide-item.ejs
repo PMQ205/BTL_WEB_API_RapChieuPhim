@@ -33,10 +33,10 @@
                         <span>Xem chi tiết</span>
                     </a>
                 <% } else if (film.Trailer && film.Trailer !== '#') { %>
-                    <a href="<%= film.Trailer %>" target="_blank" class="btn btn-hover">
+                    <button onclick="openTrailerModal('<%= film.Trailer %>')" class="btn btn-hover">
                         <i class="bx bxs-right-arrow"></i>
                         <span>Xem Trailer</span>
-                    </a>
+                    </button>
                 <% } else { %>
                     <a href="#" class="btn btn-hover" onclick="return false;">
                         <i class="bx bxs-right-arrow"></i>
