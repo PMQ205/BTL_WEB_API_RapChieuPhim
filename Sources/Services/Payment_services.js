@@ -205,66 +205,43 @@ export const payment_Services = {
     }
   },
 
-  /** ⭐ Callback VNPay khi trả về */
-  // handlePaymentCallback_Service: async (vnpParams) => {
-  //   try {
-  //     const { vnp_TxnRef, vnp_ResponseCode, vnp_SecureHash } = vnpParams
+  /** DEMO: Giữ ghế + tạo giao dịch PENDING, không gọi VNPay */
+  demoHold_Service: async ({ MaKH, MaLich, SoTien, seatData }) => {
+    try {
+      if (!MaKH || !MaLich || !SoTien || !seatData || seatData.length === 0) {
+        throw new ApiError('Thiếu dữ liệu đặt vé', 400)
+      }
 
-  //     const secureHashParams = { ...vnpParams }
-  //     delete secureHashParams.vnp_SecureHash
-  //     delete secureHashParams.vnp_SecureHashType
+      const orderId = 'DEMO-' + Date.now()
 
-  //     const isValid = vnpayConfig.verifySecureHash(
-  //       secureHashParams,
-  //       process.env.VNPAY_SECRET_KEY,
-  //       vnp_SecureHash
-  //     )
-  //     if (!isValid) throw new ApiError('Chữ ký không hợp lệ', 400)
+      // Lưu ghế tạm
+      for (const seat of seatData) {
+        await giaoDichTmp_Repo.createHold_Repo({
+          MaGD: orderId,
+          MaKH,
+          MaLich,
+          GheNgoi: seat.GheNgoi,
+        })
+      }
 
-  //     if (vnp_ResponseCode === '00') {
-  //       /** 🟢 THANH TOÁN OK */
-  //       await payment_Repo.markCompleted_Repo(vnp_TxnRef)
+      // Lưu giao dịch THANHTOAN trạng thái PENDING
+      await payment_Repo.createPayment_Repo({
+        MaKH,
+        MaLich,
+        SoTien,
+        MaGD: orderId,
+      })
 
-  //       const payment = await payment_Repo.getPaymentByMaGD_Repo(vnp_TxnRef)
+      logger.info(`🟡 DEMO giữ ghế + tạo giao dịch ${orderId}`)
+      return { orderId }
+    } catch (error) {
+      logger.error('❌ DEMO hold thất bại', error)
+      throw error
+    }
+  },
 
-  //       // Lấy danh sách ghế đang giữ
-  //       const tmpSeats = await giaoDichTmp_Repo.getByMaGD_Repo(vnp_TxnRef)
-
-  //       /** 🎫 Tạo VÉ từ ghế */
-  //       if (payment && tmpSeats && tmpSeats.length > 0) {
-  //         const GiaMoiVe = payment.SoTien / tmpSeats.length
-
-  //         const tickets = tmpSeats.map(tmp => ({
-  //           MaKH: payment.MaKH,
-  //           MaLich: payment.MaLich,
-  //           GheNgoi: tmp.GheNgoi,
-  //           TongTien: GiaMoiVe,
-  //           TrangThai: 'ACTIVE'
-  //         }))
-
-  //         await ve_Repo.createMultiple_Repo(tickets)
-  //       }
-
-  //       /** 🗑 Xóa giữ ghế */
-  //       await giaoDichTmp_Repo.deleteByMaGD_Repo(vnp_TxnRef)
-
-  //       logger.info(`🎉 Thanh toán thành công & tạo vé cho ${vnp_TxnRef}`)
-  //       return { success: true, orderId: vnp_TxnRef }
-  //     }
-
-  //     /** ❌ THANH TOÁN FAIL */
-  //     await payment_Repo.markFailed_Repo(vnp_TxnRef, vnp_ResponseCode)
-  //     await giaoDichTmp_Repo.cancelByOrderId_Repo(vnp_TxnRef)
-
-  //     return { success: false, orderId: vnp_TxnRef }
-
-  //   } catch (error) {
-  //     logger.error('❌ Lỗi callback VNPay', error)
-  //     throw error
-  //   }
-  // },
-  // ⭐ Callback – tạo vé + dịch vụ khi thanh toán thành công
-    handlePaymentCallback_Service: async (vnpParams) => {
+  // ⭐ Callback – tạo vé + dịch vụ khi thanh toán thành công (VNPay)
+  handlePaymentCallback_Service: async (vnpParams) => {
       try {
         const { vnp_TxnRef, vnp_ResponseCode, vnp_SecureHash } = vnpParams;
 
@@ -336,6 +313,67 @@ export const payment_Services = {
       }
     },
 
+
+  /** DEMO: Hoàn tất thanh toán, tạo vé từ ghế tạm (không gọi VNPay) */
+  demoComplete_Service: async ({ MaGD }) => {
+    try {
+      const payment = await payment_Repo.getPaymentByMaGD_Repo(MaGD)
+      if (!payment) throw new ApiError('Không tìm thấy giao dịch', 404)
+
+      const tmpSeats = await giaoDichTmp_Repo.getByMaGD_Repo(MaGD)
+      if (!tmpSeats || tmpSeats.length === 0) {
+        throw new ApiError('Không tìm thấy ghế tạm cho giao dịch này', 400)
+      }
+
+      const tongTien = payment.SoTien
+      const giaMoiVe = tongTien / tmpSeats.length
+
+      const tickets = tmpSeats.map((tmp) => ({
+        MaKH: payment.MaKH,
+        MaLich: payment.MaLich,
+        GheNgoi: tmp.GheNgoi,
+        TongTien: giaMoiVe,
+        TrangThai: 'ACTIVE',
+      }))
+
+      await ve_Repo.createMultiple_Repo(tickets)
+      await payment_Repo.updatePaymentStatus_Repo(MaGD, 'SUCCESS', 'DEMO')
+      await giaoDichTmp_Repo.markCompletedByOrderId_Repo(MaGD)
+
+      logger.info(`🎟 DEMO tạo ${tickets.length} vé cho ${MaGD}`)
+      return { success: true }
+    } catch (error) {
+      logger.error('❌ DEMO complete thất bại', error)
+      throw error
+    }
+  },
+
+  /** DEMO: Lấy thông tin giao dịch tạm theo MaGD */
+  getPendingInfo_Service: async (MaGD) => {
+    try {
+      const payment = await payment_Repo.getPaymentByMaGD_Repo(MaGD)
+      if (!payment) throw new ApiError('Không tìm thấy giao dịch', 404)
+
+      const tmpSeats = await giaoDichTmp_Repo.getByMaGD_Repo(MaGD)
+      if (!tmpSeats || tmpSeats.length === 0) {
+        throw new ApiError('Không còn ghế đang giữ cho giao dịch này', 404)
+      }
+
+      const seatData = tmpSeats.map((t) => ({ MaLich: t.MaLich, GheNgoi: t.GheNgoi }))
+      const totalAmount = Number(payment.SoTien)
+      const avg = totalAmount / seatData.length
+
+      return {
+        MaLich: payment.MaLich,
+        totalAmount,
+        seatData,
+        averagePrice: Math.round(avg),
+      }
+    } catch (error) {
+      logger.error('❌ Lỗi lấy thông tin giao dịch tạm', error)
+      throw error
+    }
+  },
 
   /** 📜 Lịch sử giao dịch */
   getPaymentHistory_Service: async (MaKH) => {

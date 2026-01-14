@@ -44,7 +44,37 @@ function printTicket(maVe) {
   window.print()
 }
 async function payAgain(orderId) {
-  window.location.href = `/api/payment/pay-again/${orderId}`
+  try {
+    const res = await fetch(`/api/payment/pending/${orderId}`)
+    const data = await res.json()
+    if (!res.ok || !data.success) {
+      alert(data.message || 'Không tìm thấy thông tin vé chờ thanh toán')
+      return
+    }
+
+    const info = data.data
+    const selectedSeats = info.seatData.map((s) => s.GheNgoi)
+    const totalAmount = info.totalAmount
+    const averagePrice = info.averagePrice
+
+    sessionStorage.setItem(
+      'ticketInfo',
+      JSON.stringify({
+        MaLich: info.MaLich,
+        selectedSeats,
+        totalAmount,
+        averagePrice,
+        pricePerTicket: averagePrice,
+        seatData: info.seatData,
+        orderId,
+      })
+    )
+
+    window.location.href = '/payment-booking'
+  } catch (error) {
+    console.error('payAgain error', error)
+    alert('Không thể tải lại thông tin thanh toán')
+  }
 }
 
 async function cancelHold(orderId) {

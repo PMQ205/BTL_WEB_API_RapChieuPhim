@@ -38,6 +38,58 @@ export const payment_Controller = {
     }
   },
 
+  // DEMO: Giữ ghế + tạo giao dịch tạm (không gọi VNPay)
+  demoHold: async (req, res) => {
+    try {
+      const { MaLich, SoTien, seatData } = req.body
+      const MaKH = req.user?.MaKH || req.user?.id
+
+      if (!MaKH) {
+        return res.status(401).json({ success: false, message: 'Vui lòng đăng nhập' })
+      }
+
+      const result = await payment_Services.demoHold_Service({
+        MaKH,
+        MaLich,
+        SoTien,
+        seatData,
+      })
+
+      return res.status(200).json({ success: true, orderId: result.orderId })
+    } catch (error) {
+      logger.error('DEMO: Lỗi hold giao dịch', error)
+      return res.status(500).json({ success: false, message: error.message || 'Lỗi giữ ghế' })
+    }
+  },
+
+  // DEMO: Hoàn tất thanh toán, tạo vé
+  demoComplete: async (req, res) => {
+    try {
+      const { orderId } = req.body
+      if (!orderId) {
+        return res.status(400).json({ success: false, message: 'Thiếu orderId' })
+      }
+
+      await payment_Services.demoComplete_Service({ MaGD: orderId })
+      return res.status(200).json({ success: true })
+    } catch (error) {
+      logger.error('DEMO: Lỗi complete giao dịch', error)
+      return res.status(500).json({ success: false, message: error.message || 'Lỗi hoàn tất thanh toán' })
+    }
+  },
+
+  // DEMO: Lấy thông tin giao dịch tạm để thanh toán lại
+  getPendingInfo: async (req, res) => {
+    try {
+      const { orderId } = req.params
+      const info = await payment_Services.getPendingInfo_Service(orderId)
+      return res.status(200).json({ success: true, data: info })
+    } catch (error) {
+      logger.error('DEMO: Lỗi lấy pending info', error)
+      return res.status(500).json({ success: false, message: error.message || 'Không lấy được thông tin vé chờ' })
+    }
+  },
+
   // API: Callback từ VNPay (return URL)
   paymentReturn: async (req, res) => {
     try {

@@ -178,28 +178,44 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       try { 
-        // Thay vì tạo vé ngay, tạo giao dịch tạm thời
+        // Chuẩn bị dữ liệu ghế
         const formData = selectedSeats.map((seat) => ({
           MaLich: currentMaLich,
           GheNgoi: seat,
         }))
 
-        // Lưu thông tin vé vào sessionStorage (chưa tạo vé trong DB)
         const totalAmount = Object.values(selectedSeatsData).reduce((sum, price) => sum + price, 0)
         const averagePrice = selectedSeats.length > 0 ? Math.round(totalAmount / selectedSeats.length) : 0
-        
+
+        // Gọi API DEMO để giữ ghế + tạo giao dịch PENDING
+        const res = await fetch('/api/payment/demo-hold', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            MaLich: currentMaLich,
+            SoTien: Math.round(totalAmount),
+            seatData: formData,
+          }),
+        })
+
+        const data = await res.json()
+        if (!res.ok || !data.success) {
+          alert(data.message || 'Không thể giữ ghế, vui lòng thử lại')
+          return
+        }
+
+        // Lưu thông tin vé vào sessionStorage
         sessionStorage.setItem('ticketInfo', JSON.stringify({
           MaLich: currentMaLich,
           selectedSeats: selectedSeats,
           totalAmount: Math.round(totalAmount),
           averagePrice: averagePrice,
           pricePerTicket: pricePerTicket,
-          seatData: formData, // Lưu chi tiết ghế để tạo vé sau khi thanh toán
+          seatData: formData,
+          orderId: data.orderId,
         }))
 
         alert('Đặt vé thành công! Vui lòng hoàn tất thanh toán trong 5 phút.')
-        
-        // Redirect sang trang thanh toán (vé chưa được tạo)
         window.location.href = '/payment-booking'
       } catch (error) {
         console.error('Error:', error)

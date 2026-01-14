@@ -148,6 +148,20 @@ export const giaoDichTmp_Repo = {
     )
     return rows
   },
+  getByMaGD_Repo: async (MaGD) => {
+    const db = await pool
+    const [rows] = await db.query(
+      `
+      SELECT *
+      FROM GIAODICH_TMP
+      WHERE MaGD = ?
+        AND TrangThai = 'PENDING'
+        AND HetHan > NOW()
+      `,
+      [MaGD]
+    )
+    return rows
+  },
   getServicesByMaGD_Repo: async (MaGD) => {
     const db = await pool;
     const [rows] = await db.query(

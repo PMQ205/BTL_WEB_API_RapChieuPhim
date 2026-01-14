@@ -221,8 +221,8 @@
 </head>
 <body>
   <div class="payment-container">
-    <h1>Xác nhận thanh toán</h1>
-    <p class="subtitle">Vé của bạn đã được đặt thành công. Vui lòng chọn phương thức thanh toán.</p>
+    <h1>Thanh toán MoMo (Demo)</h1>
+    <p class="subtitle">Vé của bạn đã được đặt tạm thời. Vui lòng quét mã QR MoMo để hoàn tất (demo, không trừ tiền thật).</p>
 
     <!-- Tóm tắt vé -->
     <div class="ticket-summary">
@@ -244,28 +244,25 @@
       </div>
     </div>
 
-    <!-- Phương thức thanh toán -->
+    <!-- Mã QR MoMo -->
     <div class="payment-methods">
-      <h3>Chọn phương thức thanh toán</h3>
-      <label class="method-option">
-        <input type="radio" name="paymentMethod" value="vnpay" checked>
-        <div class="method-info">
-          <div class="method-name">💳 VNPay</div>
-          <div class="method-desc">Thanh toán qua thẻ ATM, Debit, Credit hoặc ví điện tử</div>
+      <h3>Quét mã QR MoMo</h3>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <div style="background:#fff;padding:12px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+          <!-- Đổi lại tên file QR theo file của bạn trong /public/images/payment -->
+          <img src="/images/payment/QR-MOMO.png" alt="Mã QR MoMo" style="width:260px;height:260px;object-fit:contain;">
         </div>
-      </label>
+        <p style="color:#666;font-size:14px;text-align:center;max-width:360px;">
+          Mở ứng dụng MoMo &gt; Chọn tính năng <strong>Quét mã</strong> &gt; quét QR trên màn hình.
+          Đây chỉ là demo, bạn có thể bỏ qua bước thanh toán thật và bấm nút xác nhận bên dưới.
+        </p>
+      </div>
     </div>
 
     <!-- Nút hành động -->
     <div class="action-buttons">
       <button onclick="window.history.back()" class="btn btn-secondary">Quay lại</button>
-      <button onclick="proceedPayment()" class="btn btn-primary" id="paymentBtn">Thanh toán VNPay</button>
-    </div>
-
-    <!-- Loading spinner -->
-    <div class="loading" id="loadingSpinner">
-      <div class="spinner"></div>
-      <p>Đang xử lý thanh toán...</p>
+      <button onclick="finishDemoPayment()" class="btn btn-primary" id="paymentBtn">Tôi đã thanh toán (Demo)</button>
     </div>
   </div>
 
@@ -312,65 +309,42 @@
       }
     }
 
-    // Xử lý thanh toán
-    async function proceedPayment() {
-  const method = document.querySelector('input[name="paymentMethod"]:checked').value;
-  
-  if (method !== 'vnpay') {
-    alert('Phương thức thanh toán chưa được hỗ trợ');
-    return;
-  }
+    // Thanh toán demo với MoMo: gọi API demo-complete để tạo vé rồi redirect
+    async function finishDemoPayment() {
+      if (!window.MaLich || !window.totalAmount) {
+        alert('Thông tin vé không hợp lệ, vui lòng đặt lại.');
+        window.location.href = '/';
+        return;
+      }
 
-  if (!window.MaLich || !window.totalAmount) {
-    alert('Thông tin vé không hợp lệ');
-    return;
-  }
+      const ticketInfoStr = sessionStorage.getItem('ticketInfo');
+      if (!ticketInfoStr) {
+        alert('Không tìm thấy thông tin vé, vui lòng đặt lại.');
+        window.location.href = '/';
+        return;
+      }
 
-  document.getElementById('loadingSpinner').style.display = 'block';
-  document.getElementById('paymentBtn').disabled = true;
+      const info = JSON.parse(ticketInfoStr);
+      const orderId = info.orderId || ('DEMO-' + Date.now());
+      info.orderId = orderId;
+      sessionStorage.setItem('ticketInfo', JSON.stringify(info));
 
-  try {
-    // LẤY LẠI ticketInfo TRƯỚC KHI FETCH 🔥🔥🔥
-    const ticketInfo = JSON.parse(sessionStorage.getItem('ticketInfo'));
-    const seatData = ticketInfo.seatData || [];
+      try {
+        const res = await fetch('/api/payment/demo-complete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.success) {
+          alert(data.message || 'Không thể hoàn tất thanh toán, nhưng đây là demo nên bạn vẫn có thể kiểm tra vé.');
+        }
+      } catch (e) {
+        console.error('demo-complete error', e);
+      }
 
-    const response = await fetch('/api/payment/create-payment-url', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        MaLich: parseInt(window.MaLich),
-        SoTien: window.totalAmount,
-        seatData // Gửi danh sách ghế lên BE 🔥
-      }),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      // Lưu orderId
-      ticketInfo.orderId = data.orderId;
-      sessionStorage.setItem('ticketInfo', JSON.stringify(ticketInfo));
-
-      // Tạo URL thanh toán VNPay
-      const paymentUrl = new URL(data.paymentUrl);
-      paymentUrl.searchParams.append('seatData', JSON.stringify(seatData));
-
-      window.location.href = paymentUrl.toString();
-    } else {
-      alert('Lỗi: ' + (data.message || 'Không thể tạo URL thanh toán'));
-      document.getElementById('loadingSpinner').style.display = 'none';
-      document.getElementById('paymentBtn').disabled = false;
+      window.location.href = '/payment-success?orderId=' + encodeURIComponent(orderId);
     }
-  } catch (error) {
-    console.error('Payment error:', error);
-    alert('Lỗi khi tạo thanh toán: ' + error.message);
-    document.getElementById('loadingSpinner').style.display = 'none';
-    document.getElementById('paymentBtn').disabled = false;
-  }
-}
-
 
     // Load thông tin vé khi trang load
     document.addEventListener('DOMContentLoaded', loadTicketInfo);

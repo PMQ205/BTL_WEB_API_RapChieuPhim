@@ -4,8 +4,17 @@ import { authenticate } from '../middleware/auth.middleware.session.js'
 
 const router = express.Router()
 
-// API: Tạo URL thanh toán (cần đăng nhập)
+// API cũ VNPay (không dùng trong demo MoMo nhưng giữ lại)
 router.post('/create-payment-url', authenticate, payment_Controller.createPaymentUrl)
+
+// DEMO: giữ ghế + tạo giao dịch tạm
+router.post('/demo-hold', authenticate, payment_Controller.demoHold)
+
+// DEMO: hoàn tất thanh toán, tạo vé
+router.post('/demo-complete', authenticate, payment_Controller.demoComplete)
+
+// DEMO: lấy thông tin giao dịch tạm để thanh toán lại
+router.get('/pending/:orderId', authenticate, payment_Controller.getPendingInfo)
 
 // API: Callback từ VNPay (không cần đăng nhập)
 router.get('/vnpay-return', payment_Controller.paymentReturn)
